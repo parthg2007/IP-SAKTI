@@ -77,7 +77,7 @@ export default function ChatMessages({ messages = emptyMessages, isGenerating = 
   return (
     <div
       ref={scrollRef}
-      className="min-h-0 flex-1 overflow-y-auto overscroll-contain"
+      className="chat-messages-scroll"
       onScroll={() => {
         if (isEmpty) return
         const container = scrollRef.current
@@ -85,21 +85,12 @@ export default function ChatMessages({ messages = emptyMessages, isGenerating = 
       }}
     >
       {isEmpty ? emptyState : (
-      <div className="mx-auto w-full max-w-[880px] space-y-7 px-4 py-7 sm:px-8" role="log" aria-label="Conversation" aria-live="polite" aria-relevant="additions text">
+      <div className="chat-message-list" role="log" aria-label="Conversation" aria-live="polite" aria-relevant="additions text">
         {messages.filter((message) => message.status !== 'loading').map((message) => (
-          <article key={message.id} className={`flex items-start gap-3 motion-safe:animate-message-in ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-            {message.role !== 'user' && (
-              <span aria-hidden="true" className="mt-1 hidden size-9 shrink-0 place-items-center rounded-full border border-[var(--lp-line)] bg-[var(--lp-card)] text-[var(--lp-gold)] shadow-sm sm:grid">
-                <Icon name="spark" className="size-4" />
-              </span>
-            )}
-            <div className={`min-w-0 max-w-full rounded-2xl border px-5 py-4 sm:max-w-[85%] ${
-              message.role === 'user'
-                ? 'rounded-tr-md border-[var(--lp-strong-line)] bg-[var(--lp-surface)]'
-                : 'rounded-tl-md border-[var(--lp-line)] bg-[var(--lp-card)] shadow-sm border-l-2 border-l-[var(--lp-accent)]/60'
-            }`}>
+          <article key={message.id} className={`chat-message-row motion-safe:animate-message-in ${message.role === 'user' ? 'chat-message-row-user' : ''}`}>
+            <div className={`chat-message-card ${message.role === 'user' ? 'chat-message-user' : 'chat-message-assistant'}`}>
               <div className="mb-2 flex items-center justify-between gap-2">
-                <p className={`text-xs font-medium tracking-wide ${message.role === 'user' ? 'text-[var(--lp-muted)]' : "font-['Merriweather',serif] text-[var(--lp-accent)]"}`}>
+                <p className="chat-message-author">
                   {message.role === 'user' ? 'You' : 'IP-SAKTI'}{message.jurisdiction && ` · ${message.jurisdiction === 'international' ? 'International' : 'India'}`}
                 </p>
                 {message.role !== 'user' && message.status !== 'error' && message.content && 'speechSynthesis' in window && (
@@ -133,9 +124,9 @@ export default function ChatMessages({ messages = emptyMessages, isGenerating = 
                 )}
               </div>
               {message.role === 'user' || message.status === 'error' ? (
-                <p role={message.status === 'error' ? 'alert' : undefined} className="whitespace-pre-wrap font-['Source_Sans_3',sans-serif] text-lg leading-8 wrap-anywhere">{message.content}</p>
+                <p role={message.status === 'error' ? 'alert' : undefined} className="chat-message-text whitespace-pre-wrap wrap-anywhere">{message.content}</p>
               ) : (
-                <div dir="auto" className="chat-answer font-['Source_Sans_3',sans-serif] text-lg leading-8 wrap-anywhere"><Markdown skipHtml remarkPlugins={[remarkGfm]} components={markdownComponents}>{message.content}</Markdown></div>
+                <div dir="auto" className="chat-answer chat-message-text wrap-anywhere"><Markdown skipHtml remarkPlugins={[remarkGfm]} components={markdownComponents}>{message.content}</Markdown></div>
               )}
               {message.status === 'error' && message.query && <button type="button" onClick={() => onRetry?.(message)} disabled={isGenerating} className="mt-3 cursor-pointer rounded-full border border-[var(--lp-strong-line)] px-4 py-2 text-sm text-[var(--lp-accent)] disabled:cursor-not-allowed disabled:opacity-40">Retry answer</button>}
               {message.citations?.length > 0 && <EvidenceList items={message.citations} />}
@@ -184,11 +175,8 @@ export default function ChatMessages({ messages = emptyMessages, isGenerating = 
           </article>
         ))}
         {isGenerating && (
-          <div role="status" className="flex items-center gap-3 py-3 motion-safe:animate-message-in">
-            <span aria-hidden="true" className="grid size-9 shrink-0 place-items-center rounded-full border border-[var(--lp-line)] bg-[var(--lp-card)] text-[var(--lp-gold)] shadow-sm">
-              <Icon name="spark" className="size-4" />
-            </span>
-            <div className="flex items-center gap-2 rounded-2xl rounded-tl-md border border-l-2 border-[var(--lp-line)] border-l-[var(--lp-accent)]/60 bg-[var(--lp-card)] px-4 py-3 shadow-sm">
+          <div role="status" className="chat-message-card chat-message-assistant motion-safe:animate-message-in">
+            <div className="flex items-center gap-2">
               <span className="flex items-center gap-1" aria-hidden="true">
                 <span className="size-2 rounded-full bg-[var(--lp-gold)] motion-safe:animate-[bounce_1.2s_infinite]" />
                 <span className="size-2 rounded-full bg-[var(--lp-gold)] motion-safe:animate-[bounce_1.2s_150ms_infinite]" />

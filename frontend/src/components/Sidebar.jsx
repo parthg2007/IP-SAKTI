@@ -4,10 +4,10 @@ import logo from '../assets/landing-logo.webp'
 import Icon from './LandingIcon.jsx'
 
 const tools = [
-  { label: 'Research tools', icon: 'book', description: 'Evidence, legal history & services' },
-  { label: 'Classify', icon: 'grid', description: 'Find your IP direction' },
-  { label: 'ABS', icon: 'balance', description: 'Access & benefit sharing' },
-  { label: 'Prior Art', icon: 'search', description: 'Explore existing knowledge' },
+  { label: 'Research tools', icon: 'book' },
+  { label: 'Classify', icon: 'grid' },
+  { label: 'ABS', icon: 'balance' },
+  { label: 'Prior Art', icon: 'search' },
 ]
 
 export default function Sidebar({ onNewQuery, onToolSelect, chats = [], activeChatId, onChatSelect, mobile = false, onClose }) {
@@ -45,10 +45,10 @@ export default function Sidebar({ onNewQuery, onToolSelect, chats = [], activeCh
 
         <h2 className={`mt-7 mb-3 px-3 text-sm font-semibold tracking-[0.1em] text-[var(--lp-muted)] uppercase ${collapsed ? 'sr-only' : ''}`}>Tools</h2>
         <div className={`space-y-1 ${collapsed ? 'mt-6' : ''}`}>
-          {tools.map(({ label, icon, description }) => (
-            <button key={label} type="button" onClick={() => onToolSelect?.(label)} aria-label={label} title={collapsed ? `${label} — ${description}` : undefined} className={`${rowClass} border-0 hover:bg-[var(--lp-card)]/40`}>
+          {tools.map(({ label, icon }) => (
+            <button key={label} type="button" onClick={() => onToolSelect?.(label)} aria-label={label} title={collapsed ? label : undefined} className={`${rowClass} border-0 hover:bg-[var(--lp-card)]/40`}>
               <Icon name={icon} className="text-[var(--lp-accent)]" />
-              <span className={`min-w-0 ${labelClass}`}><span className="block font-medium">{label}</span><span className="mt-0.5 block text-xs leading-relaxed text-[var(--lp-muted)]">{description}</span></span>
+              <span className={`min-w-0 font-medium ${labelClass}`}>{label}</span>
             </button>
           ))}
         </div>
@@ -72,17 +72,15 @@ export default function Sidebar({ onNewQuery, onToolSelect, chats = [], activeCh
         ) : collapsed ? (
           <span title="No chats yet" aria-label="No chats yet" className="mx-auto text-[var(--lp-muted)]"><Icon name="message" /></span>
         ) : (
-          <div className="mx-2 rounded-xl border border-dashed border-[var(--lp-strong-line)] p-4">
-            <Icon name="message" className="mb-3 size-[18px] text-[var(--lp-muted)]" />
-            <p className="text-sm">A fresh start.</p>
-            <p className="mt-1 text-xs leading-relaxed text-[var(--lp-muted)]">Your past conversations will appear here.</p>
+          <div className="mx-2 flex items-center gap-2 rounded-xl border border-dashed border-[var(--lp-strong-line)] p-4 text-[var(--lp-muted)]">
+            <Icon name="message" className="size-[18px]" />
+            <p className="text-sm">No chats yet.</p>
           </div>
         )}
       </div>
 
       <footer className="mt-4 shrink-0 border-t border-[var(--lp-strong-line)] pt-4">
         <Link to="/" aria-label="Back to home" title={collapsed ? 'Back to home' : undefined} className={`${rowClass} text-[var(--lp-muted)] hover:text-[var(--lp-ink)]`}><Icon name="back" className="size-4" /><span className={labelClass}>Back to home</span></Link>
-        <p className={`mt-2 flex items-center gap-2 px-3 text-xs text-[var(--lp-muted)] ${collapsed ? 'justify-center' : ''}`}><span className="size-1.5 shrink-0 rounded-full bg-[var(--lp-gold)]" /><span className={labelClass}>Rooted in knowledge.</span></p>
       </footer>
     </aside>
   )
