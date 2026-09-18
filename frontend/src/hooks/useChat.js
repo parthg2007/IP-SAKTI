@@ -76,6 +76,18 @@ export default function useChat() {
 
   function newChat() { cancelRequest(); setHistory((current) => ({ ...current, activeChatId: null })) }
   function selectChat(chat) { if (chat.id === history.activeChatId) return; cancelRequest(); setHistory((current) => ({ ...current, activeChatId: chat.id })) }
+  function deleteChat(chatId) {
+    const pending = requestRef.current
+    if (pending?.chatId === chatId) {
+      requestRef.current = null
+      pending.controller.abort()
+    }
+    setHistory((current) => ({
+      ...current,
+      activeChatId: current.activeChatId === chatId ? null : current.activeChatId,
+      chats: current.chats.filter((chat) => chat.id !== chatId),
+    }))
+  }
   function setJurisdiction(value) { setDraftJurisdiction(value); if (activeChat) setHistory((current) => ({ ...current, chats: current.chats.map((chat) => chat.id === activeChat.id ? { ...chat, jurisdiction: value } : chat) })) }
   function setLanguage(value) { setDraftLanguage(value); if (activeChat) setHistory((current) => ({ ...current, chats: current.chats.map((chat) => chat.id === activeChat.id ? { ...chat, language: value } : chat) })) }
 
@@ -83,5 +95,5 @@ export default function useChat() {
     if (activeChat) updateMessage(activeChat.id, messageId, { escalation })
   }
 
-  return { ...history, messages, jurisdiction, language, setJurisdiction, setLanguage, queryOptions, setQueryOptions, saveEscalation, isGenerating, sendMessage, retryMessage, newChat, selectChat, cancelRequest }
+  return { ...history, messages, jurisdiction, language, setJurisdiction, setLanguage, queryOptions, setQueryOptions, saveEscalation, isGenerating, sendMessage, retryMessage, newChat, selectChat, deleteChat, cancelRequest }
 }

@@ -23,7 +23,7 @@
   font-family: Inter, sans-serif;
 }
 
-/* Low, layered green light follows the reference's bottom-heavy backdrop. */
+/* A dark upper field and softly lit, continuously changing wave surfaces. */
 .chat-atmosphere {
   position: absolute;
   z-index: -1;
@@ -31,62 +31,15 @@
   overflow: hidden;
   pointer-events: none;
   background:
-    radial-gradient(ellipse at 51% 115%, #a8b98740, transparent 58%),
-    radial-gradient(ellipse at 90% 105%, #60734b4d, transparent 52%),
-    radial-gradient(ellipse at 14% 96%, #26503a66, transparent 53%),
-    linear-gradient(#080b08a6 16%, #1110 64%);
+    radial-gradient(ellipse at 54% 105%, #557b4824, transparent 59%),
+    linear-gradient(#030604c9 18%, #09110ab3 70%, #111);
 }
 
-.chat-atmosphere span { position: absolute; display: block; filter: blur(3px); }
-.chat-atmosphere span:nth-child(1) {
-  width: 90%; height: 67%; left: -18%; bottom: -37%;
-  border-radius: 52% 55% 0 0;
-  transform: rotate(-18deg);
-  background: linear-gradient(145deg, #4f70553b, #77936b0a 65%);
-}
-.chat-atmosphere span:nth-child(2) {
-  width: 88%; height: 72%; right: -20%; bottom: -28%;
-  border-radius: 55% 50% 0 0;
-  transform: rotate(26deg);
-  background: linear-gradient(145deg, #6e87623b, #48684110 70%);
-}
-.chat-atmosphere span:nth-child(3) {
-  width: 74%; height: 65%; left: 24%; bottom: -30%;
-  border-radius: 50% 60% 0 0;
-  transform: rotate(-28deg);
-  background: linear-gradient(155deg, #aabd8414, #5b815407 66%);
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .chat-atmosphere::before {
-    content: '';
-    position: absolute;
-    inset: -12%;
-    background: radial-gradient(ellipse at 55% 90%, #b5ce9d24, transparent 55%);
-    animation: chat-glow-drift 24s ease-in-out -8s infinite alternate;
-  }
-  .chat-atmosphere span,
-  .chat-atmosphere::before { will-change: transform, opacity; }
-  .chat-atmosphere span:nth-child(1) { animation: chat-wave-left 18s ease-in-out -6s infinite alternate; }
-  .chat-atmosphere span:nth-child(2) { animation: chat-wave-right 23s ease-in-out -14s infinite alternate; }
-  .chat-atmosphere span:nth-child(3) { animation: chat-wave-center 28s ease-in-out -10s infinite alternate; }
-}
-
-@keyframes chat-wave-left {
-  from { transform: translate3d(-3%, 3%, 0) rotate(-22deg) scale(1); opacity: .7; }
-  to { transform: translate3d(7%, -9%, 0) rotate(-10deg) scale(1.08); opacity: 1; }
-}
-@keyframes chat-wave-right {
-  from { transform: translate3d(4%, 4%, 0) rotate(30deg) scale(1); opacity: .75; }
-  to { transform: translate3d(-7%, -8%, 0) rotate(18deg) scale(1.1); opacity: 1; }
-}
-@keyframes chat-wave-center {
-  from { transform: translate3d(-5%, 5%, 0) rotate(-34deg) scale(1); opacity: .6; }
-  to { transform: translate3d(6%, -12%, 0) rotate(-20deg) scale(1.12); opacity: 1; }
-}
-@keyframes chat-glow-drift {
-  from { transform: translate3d(-4%, 3%, 0) scale(1); opacity: .45; }
-  to { transform: translate3d(4%, -3%, 0) scale(1.08); opacity: .9; }
+.chat-atmosphere-wave-field {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 
 .chat-topbar {

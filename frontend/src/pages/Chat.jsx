@@ -5,6 +5,7 @@ import Sidebar from '../components/Sidebar.jsx'
 import InputBar from '../components/InputBar.jsx'
 import ChatMessages from '../components/ChatMessages.jsx'
 import ChatWelcome from '../components/ChatWelcome.jsx'
+import ChatAtmosphere from '../components/ChatAtmosphere.jsx'
 import Icon from '../components/LandingIcon.jsx'
 import logo from '../assets/landing-logo.webp'
 import useChat from '../hooks/useChat.js'
@@ -22,7 +23,7 @@ const toolPrompts = {
 
 const Chat = () => {
   const { messages, isGenerating, chats, activeChatId, jurisdiction, language, setJurisdiction, setLanguage,
-    sendMessage, retryMessage, newChat, selectChat, cancelRequest, queryOptions, setQueryOptions, saveEscalation } = useChat()
+    sendMessage, retryMessage, newChat, selectChat, deleteChat, cancelRequest, queryOptions, setQueryOptions, saveEscalation } = useChat()
   const sidebarRef = useRef(null)
   const settingsRef = useRef(null)
   const form = useForm({ defaultValues: { message: '' } })
@@ -75,6 +76,14 @@ const Chat = () => {
   const sidebarProps = {
     chats,
     activeChatId,
+    onDeleteChat: (chatId) => {
+      deleteChat(chatId)
+      if (chatId === activeChatId) {
+        form.reset({ message: '' })
+        setInputRevision((value) => value + 1)
+        setEscalationMessage(null)
+      }
+    },
     onChatSelect: (chat) => {
       sidebarRef.current?.close()
       selectChat(chat)
@@ -96,7 +105,7 @@ const Chat = () => {
   return (
     <FormProvider {...form}>
       <div className="chat-shell dark scheme-dark">
-        <div className="chat-atmosphere" aria-hidden="true"><span /><span /><span /></div>
+        <ChatAtmosphere />
         <header className="chat-topbar">
           <Link to="/" aria-label="IP-SAKTI home" className="chat-brand">
             <img src={logo} alt="" />

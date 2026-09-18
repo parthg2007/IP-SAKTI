@@ -2,6 +2,7 @@ const paths = {
   panel: <><rect x="3" y="4" width="18" height="16" rx="3" /><path d="M9 4v16m7-11-3 3 3 3" /></>,
   message: <path d="M20 11.5A8.5 8.5 0 0 1 11.5 20H4l-2 2V11.5a9 9 0 1 1 18 0Z" />,
   close: <path d="m6 6 12 12M6 18 18 6" />,
+  trash: <><path d="M3 6h18M9 6V3h6v3M5 6l1 15h12l1-15M10 10v7m4-7v7" /></>,
   menu: <path d="M4 6h16M4 12h16M4 18h16" />,
   up: <path d="M12 19V5m-6 6 6-6 6 6" />,
   back: <path d="M19 12H5m6-6-6 6 6 6" />,

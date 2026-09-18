@@ -1,4 +1,4 @@
-import { act, cleanup, fireEvent, render, renderHook, screen, waitFor } from '@testing-library/react'
+import { act, cleanup, fireEvent, render, renderHook, screen, waitFor, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { afterEach, beforeEach, expect, test, vi } from 'vitest'
 import { MemoryRouter } from 'react-router-dom'
@@ -183,6 +183,114 @@ test('chat retry preserves settings and cancellation cannot overwrite a newer ch
   await act(async () => resolve({ content: 'Late answer' }))
   expect(result.current.messages).toEqual([])
   expect(result.current.chats[0].messages[1].content).not.toBe('Late answer')
+})
+
+test('deleting a chat requires confirmation, clears its draft and persists after reopening the page', async () => {
+  const user = userEvent.setup()
+  queryKnowledge.mockResolvedValue({ content: 'Saved answer', citations: [] })
+  const view = render(<MemoryRouter><Chat /></MemoryRouter>)
+  await user.type(screen.getByRole('textbox', { name: 'Message', exact: true }), 'Saved conversation')
+  await user.click(screen.getByRole('button', { name: 'Send message' }))
+  await screen.findByText('Saved answer')
+  await user.type(screen.getByRole('textbox', { name: 'Message', exact: true }), 'Unsent draft')
+  const savedHistory = localStorage.getItem('ip-sakti-chats-v1')
+
+  await user.click(screen.getByRole('button', { name: 'Open sidebar' }))
+  await user.click(screen.getByRole('button', { name: 'Delete chat: Saved conversation' }))
+  const confirmation = await screen.findByRole('dialog', { name: 'Delete chat', exact: true })
+  await user.click(within(confirmation).getByRole('button', { name: 'Cancel', exact: true }))
+  expect(screen.queryByRole('dialog', { name: 'Delete chat', exact: true })).toBe(null)
+  expect(document.activeElement).toBe(screen.getByRole('button', { name: 'Delete chat: Saved conversation' }))
+  expect(localStorage.getItem('ip-sakti-chats-v1')).toBe(savedHistory)
+  expect(screen.getByRole('textbox', { name: 'Message', exact: true }).value).toBe('Unsent draft')
+  expect(screen.getByText('Saved answer')).toBeTruthy()
+
+  await user.click(screen.getByRole('button', { name: 'Delete chat: Saved conversation' }))
+  fireEvent(await screen.findByRole('dialog', { name: 'Delete chat', exact: true }), new Event('cancel', { cancelable: true }))
+  expect(screen.queryByRole('dialog', { name: 'Delete chat', exact: true })).toBe(null)
+  expect(document.activeElement).toBe(screen.getByRole('button', { name: 'Delete chat: Saved conversation' }))
+  expect(localStorage.getItem('ip-sakti-chats-v1')).toBe(savedHistory)
+  expect(screen.getByRole('textbox', { name: 'Message', exact: true }).value).toBe('Unsent draft')
+
+  await user.click(screen.getByRole('button', { name: 'Delete chat: Saved conversation' }))
+  await user.click(within(await screen.findByRole('dialog', { name: 'Delete chat', exact: true })).getByRole('button', { name: 'Delete chat', exact: true }))
+  await screen.findByText('Welcome')
+  expect(document.activeElement).toBe(screen.getByRole('button', { name: 'New Query', exact: true }))
+  expect(screen.getByRole('textbox', { name: 'Message', exact: true }).value).toBe('')
+  expect(screen.queryByText('Saved answer')).toBe(null)
+  expect(JSON.parse(localStorage.getItem('ip-sakti-chats-v1'))).toEqual({ activeChatId: null, chats: [] })
+
+  view.unmount()
+  render(<MemoryRouter><Chat /></MemoryRouter>)
+  await screen.findByText('Welcome')
+  await user.click(screen.getByRole('button', { name: 'Open sidebar' }))
+  expect(screen.getByText('No chats yet.')).toBeTruthy()
+  expect(screen.queryByRole('button', { name: 'Saved conversation', exact: true })).toBe(null)
+})
+
+test('deleting an active pending chat aborts it and a late answer cannot restore it or disrupt a new chat', async () => {
+  let resolveDeleted
+  let resolveNext
+  queryKnowledge
+    .mockReturnValueOnce(new Promise((resolve) => { resolveDeleted = resolve }))
+    .mockReturnValueOnce(new Promise((resolve) => { resolveNext = resolve }))
+  const { result } = renderHook(() => useChat())
+  act(() => { result.current.sendMessage('Delete this pending question') })
+  const deletedId = result.current.activeChatId
+  const deletedSignal = queryKnowledge.mock.calls[0][0].signal
+
+  act(() => result.current.deleteChat(deletedId))
+  expect(deletedSignal.aborted).toBe(true)
+  expect(result.current.activeChatId).toBe(null)
+  expect(result.current.messages).toEqual([])
+  expect(result.current.chats).toEqual([])
+  expect(result.current.isGenerating).toBe(false)
+  expect(JSON.parse(localStorage.getItem('ip-sakti-chats-v1'))).toEqual({ activeChatId: null, chats: [] })
+
+  act(() => { expect(result.current.sendMessage('New question')).toBe(true) })
+  const nextId = result.current.activeChatId
+  const nextSignal = queryKnowledge.mock.calls[1][0].signal
+  await act(async () => resolveDeleted({ content: 'Deleted late answer' }))
+  expect(result.current.activeChatId).toBe(nextId)
+  expect(result.current.chats.map((chat) => chat.id)).toEqual([nextId])
+  expect(nextId).not.toBe(deletedId)
+  expect(nextSignal.aborted).toBe(false)
+  expect(result.current.isGenerating).toBe(true)
+  expect(result.current.messages[1].status).toBe('loading')
+
+  await act(async () => resolveNext({ content: 'New answer' }))
+  expect(result.current.messages[1]).toMatchObject({ content: 'New answer', status: 'complete' })
+  expect(localStorage.getItem('ip-sakti-chats-v1')).not.toContain('Deleted late answer')
+  expect(result.current.isGenerating).toBe(false)
+})
+
+test('deleting an inactive chat preserves the active pending request and its messages', async () => {
+  queryKnowledge.mockResolvedValueOnce({ content: 'Older answer' })
+  const { result } = renderHook(() => useChat())
+  act(() => { result.current.sendMessage('Older question') })
+  await waitFor(() => expect(result.current.isGenerating).toBe(false))
+  const olderId = result.current.activeChatId
+  act(() => result.current.newChat())
+
+  let resolveActive
+  queryKnowledge.mockReturnValueOnce(new Promise((resolve) => { resolveActive = resolve }))
+  act(() => { result.current.sendMessage('Active question') })
+  const activeId = result.current.activeChatId
+  const activeMessages = result.current.messages
+  const activeSignal = queryKnowledge.mock.calls[1][0].signal
+
+  act(() => result.current.deleteChat(olderId))
+  expect(activeSignal.aborted).toBe(false)
+  expect(result.current.activeChatId).toBe(activeId)
+  expect(result.current.messages).toEqual(activeMessages)
+  expect(result.current.isGenerating).toBe(true)
+  expect(result.current.chats.map((chat) => chat.id)).toEqual([activeId])
+  expect(JSON.parse(localStorage.getItem('ip-sakti-chats-v1')).chats.map((chat) => chat.id)).toEqual([activeId])
+
+  await act(async () => resolveActive({ content: 'Active answer' }))
+  expect(result.current.messages[1]).toMatchObject({ content: 'Active answer', status: 'complete' })
+  expect(result.current.activeChatId).toBe(activeId)
+  expect(result.current.isGenerating).toBe(false)
 })
 
 test('voice releases late microphone access on unmount without transcribing', async () => {
