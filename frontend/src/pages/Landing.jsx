@@ -40,8 +40,13 @@ export default function Landing() {
       intro.from('[data-hero-line]', { yPercent: 110, rotate: 2, duration: 1.15, stagger: 0.13 })
         .from('[data-hero-copy]', { opacity: 0, y: 20, duration: 0.7, stagger: 0.12 }, '-=0.65')
         .from('[data-hero-visual]', { opacity: 0, duration: 1.1 }, 0.25)
-      gsap.utils.toArray('[data-reveal]').forEach((element) => {
-        gsap.from(element, { opacity: 0, y: 32, duration: 0.85, ease: 'power2.out', scrollTrigger: { trigger: element, start: 'top 91%', once: true } })
+      // Use ScrollTrigger.batch — one IntersectionObserver for all reveals
+      // instead of N independent ScrollTrigger instances.
+      gsap.set('[data-reveal]', { opacity: 0, y: 32 })
+      ScrollTrigger.batch('[data-reveal]', {
+        start: 'top 91%',
+        once: true,
+        onEnter: (batch) => gsap.to(batch, { opacity: 1, y: 0, duration: 0.85, ease: 'power2.out', stagger: 0.08 }),
       })
       return undefined
     }, pageRef)

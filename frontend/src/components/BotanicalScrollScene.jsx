@@ -59,7 +59,7 @@ export default function BotanicalScrollScene() {
           end: () => conditions.tall ? `+=${Math.max(window.innerHeight * 2.6, 1800)}` : 'bottom top',
           pin: conditions.tall,
           pinSpacing: true,
-          scrub: 0.65,
+          scrub: 0.35,
           anticipatePin: 1,
           invalidateOnRefresh: true,
           refreshPriority: 1,
@@ -93,7 +93,7 @@ export default function BotanicalScrollScene() {
         <div data-parallax className="absolute inset-x-0 top-8 bottom-[220px] flex items-center justify-center sm:top-10 sm:bottom-[200px]">
           <div className="relative aspect-8/7 w-full max-w-[calc((max(480px,100svh)-260px)*8/7)] [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent),linear-gradient(to_bottom,transparent,black_8%,black_88%,transparent)] [mask-composite:intersect]">
             <img src={`${assetPath}poster.webp`} alt="A botanical glass capsule transforms into a golden drop, then a mortar and pestle as you scroll." width={manifest.width} height={manifest.height} fetchPriority="high" className="absolute inset-0 size-full object-contain" />
-            <canvas ref={canvasRef} aria-hidden="true" className="absolute inset-0 size-full object-contain opacity-0 data-[ready=true]:opacity-100" />
+            <canvas ref={canvasRef} aria-hidden="true" className="absolute inset-0 size-full object-contain opacity-0 data-[ready=true]:opacity-100" style={{ willChange: 'transform' }} />
             <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-0 h-12 bg-linear-to-t from-[#0D2117] to-transparent" />
           </div>
         </div>

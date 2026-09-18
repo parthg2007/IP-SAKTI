@@ -1,5 +1,6 @@
 // Keep just the current strip and its two neighbours decoded (about 35 MB).
 // Each strip contains ten vertically stacked frames from the reference clip.
+// Optimised: rAF-batched draws, throttled load() during rapid scrub, LRU eviction.
 export function createScrollSequence(canvas, manifest, baseUrl, backgroundCanvas) {
   const context = canvas.getContext('2d')
   if (!context || typeof createImageBitmap !== 'function') return null
@@ -12,6 +13,8 @@ export function createScrollSequence(canvas, manifest, baseUrl, backgroundCanvas
   let frame = 0
   let direction = 1
   let lastDrawn = -1
+  let rafId = 0
+  let loadTimer = 0
 
   canvas.width = manifest.width
   canvas.height = manifest.height
@@ -40,6 +43,15 @@ export function createScrollSequence(canvas, manifest, baseUrl, backgroundCanvas
       backgroundCanvas.dataset.ready = 'true'
     }
     lastDrawn = frame
+  }
+
+  // Batch draws via rAF to avoid multiple canvas paints in the same frame.
+  const scheduleDraw = () => {
+    if (rafId) return
+    rafId = requestAnimationFrame(() => {
+      rafId = 0
+      draw()
+    })
   }
 
   const load = () => {
@@ -72,7 +84,7 @@ export function createScrollSequence(canvas, manifest, baseUrl, backgroundCanvas
             return
           }
           cache.set(index, bitmap)
-          draw()
+          scheduleDraw()
         })
         .catch((error) => {
           if (error.name !== 'AbortError') failed.add(index)
@@ -84,16 +96,28 @@ export function createScrollSequence(canvas, manifest, baseUrl, backgroundCanvas
     }
   }
 
+  // Throttle load() calls during rapid scrolling to prevent excessive
+  // fetch churn — at most one evaluation per 60ms.
+  const throttledLoad = () => {
+    if (loadTimer) return
+    loadTimer = setTimeout(() => {
+      loadTimer = 0
+      load()
+    }, 60)
+  }
+
   return {
     render(nextFrame) {
       const next = Math.max(0, Math.min(manifest.frames - 1, Math.round(nextFrame)))
       if (next !== frame) direction = next > frame ? 1 : -1
       frame = next
-      draw()
-      load()
+      scheduleDraw()
+      throttledLoad()
     },
     dispose() {
       disposed = true
+      if (rafId) cancelAnimationFrame(rafId)
+      clearTimeout(loadTimer)
       pending.forEach((controller) => controller.abort())
       cache.forEach((bitmap) => bitmap.close())
       cache.clear()

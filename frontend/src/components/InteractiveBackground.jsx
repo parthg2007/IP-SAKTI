@@ -2,6 +2,10 @@ import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 
 // A field of connected points, with a soft spotlight and cursor repulsion.
+// Optimised: spatial-grid neighbour lookup, batched canvas paths, reduced GC.
+const CONNECTION_DIST = 165
+const TWO_PI = Math.PI * 2
+
 export default function InteractiveBackground() {
   const canvasRef = useRef(null)
 
@@ -23,6 +27,24 @@ export default function InteractiveBackground() {
       const finePointer = window.matchMedia('(pointer: fine)')
       const interactionRadius = 240
 
+      // ── Spatial grid for O(n) neighbour lookups instead of O(n²) ───
+      let gridCols = 1
+      let gridRows = 1
+      let grid = []
+      const buildGrid = (pos) => {
+        gridCols = Math.max(1, Math.ceil(width / CONNECTION_DIST))
+        gridRows = Math.max(1, Math.ceil(height / CONNECTION_DIST))
+        const total = gridCols * gridRows
+        if (grid.length !== total) grid = new Array(total)
+        for (let i = 0; i < total; i++) grid[i] = []
+        for (let i = 0; i < pos.length; i++) {
+          const p = pos[i]
+          const col = Math.min(gridCols - 1, Math.max(0, (p.x / CONNECTION_DIST) | 0))
+          const row = Math.min(gridRows - 1, Math.max(0, (p.y / CONNECTION_DIST) | 0))
+          grid[row * gridCols + col].push(i)
+        }
+      }
+
       const drawGlow = (x, y, radius, rgb, opacity) => {
         const gradient = context.createRadialGradient(x, y, 0, x, y, radius)
         gradient.addColorStop(0, `rgba(${rgb}, ${opacity})`)
@@ -31,6 +53,9 @@ export default function InteractiveBackground() {
         context.fillStyle = gradient
         context.fillRect(x - radius, y - radius, radius * 2, radius * 2)
       }
+
+      // Pre-allocated position array to avoid per-frame allocation.
+      let positions = []
 
       const draw = (time = animationTime, step = 0) => {
         context.clearRect(0, 0, width, height)
@@ -48,7 +73,9 @@ export default function InteractiveBackground() {
           drawGlow(glow.trailX, glow.trailY, 150, gold, 0.12 * glow.opacity)
         }
 
-        const positions = points.map((point) => {
+        // Compute animated positions (reuse array to reduce GC pressure).
+        for (let i = 0; i < points.length; i++) {
+          const point = points[i]
           const x = point.x + Math.sin(time * 0.16 + point.phase) * 13
           const y = point.y + Math.cos(time * 0.12 + point.phase) * 13
           const dx = x - pointer.x
@@ -61,41 +88,105 @@ export default function InteractiveBackground() {
           // Ease back into place instead of snapping when the cursor moves away.
           point.offsetX += (targetX - point.offsetX) * following
           point.offsetY += (targetY - point.offsetY) * following
-          return { x: x + point.offsetX, y: y + point.offsetY, influence }
-        })
+          if (!positions[i]) positions[i] = { x: 0, y: 0, influence: 0 }
+          positions[i].x = x + point.offsetX
+          positions[i].y = y + point.offsetY
+          positions[i].influence = influence
+        }
 
-        positions.forEach((point, index) => {
-          context.beginPath()
-          context.arc(point.x, point.y, 1.5 + point.influence * 2, 0, Math.PI * 2)
-          context.fillStyle = `rgba(${point.influence > 0.45 ? gold : color}, ${0.42 + point.influence * 0.5})`
-          context.fill()
-          for (let next = index + 1; next < positions.length; next++) {
-            const other = positions[next]
-            const distance = Math.hypot(point.x - other.x, point.y - other.y)
-            if (distance < 165) {
-              context.beginPath()
-              context.moveTo(point.x, point.y)
-              context.lineTo(other.x, other.y)
-              context.strokeStyle = `rgba(${color}, ${(1 - distance / 165) * (0.2 + point.influence * 0.3)})`
-              context.stroke()
+        // ── Draw dots — batch normal and highlighted into two paths ───
+        context.beginPath()
+        for (let i = 0; i < points.length; i++) {
+          const p = positions[i]
+          if (p.influence > 0.45) continue
+          const r = 1.5 + p.influence * 2
+          context.moveTo(p.x + r, p.y)
+          context.arc(p.x, p.y, r, 0, TWO_PI)
+        }
+        context.fillStyle = `rgba(${color}, 0.42)`
+        context.fill()
+
+        // Highlighted dots (near cursor).
+        context.beginPath()
+        for (let i = 0; i < points.length; i++) {
+          const p = positions[i]
+          if (p.influence <= 0.45) continue
+          const r = 1.5 + p.influence * 2
+          context.moveTo(p.x + r, p.y)
+          context.arc(p.x, p.y, r, 0, TWO_PI)
+        }
+        context.fillStyle = `rgba(${gold}, 0.92)`
+        context.fill()
+
+        // ── Draw connection lines — spatial grid lookup ───
+        // Group lines into 4 opacity buckets to minimise strokeStyle changes.
+        buildGrid(positions)
+        const buckets = [[], [], [], []]
+        const bucketAlphas = [0.04, 0.08, 0.13, 0.2]
+
+        for (let i = 0; i < points.length; i++) {
+          const p = positions[i]
+          const col = Math.min(gridCols - 1, Math.max(0, (p.x / CONNECTION_DIST) | 0))
+          const row = Math.min(gridRows - 1, Math.max(0, (p.y / CONNECTION_DIST) | 0))
+
+          // Check current cell and forward-adjacent cells to avoid double-drawing.
+          for (let dr = 0; dr <= 1; dr++) {
+            const nr = row + dr
+            if (nr >= gridRows) continue
+            const startDc = dr === 0 ? 0 : -1
+            for (let dc = startDc; dc <= 1; dc++) {
+              const nc = col + dc
+              if (nc < 0 || nc >= gridCols) continue
+              const cell = grid[nr * gridCols + nc]
+              for (let ci = 0; ci < cell.length; ci++) {
+                const j = cell[ci]
+                if (j <= i) continue
+                const other = positions[j]
+                const ddx = p.x - other.x
+                const ddy = p.y - other.y
+                const dist = Math.sqrt(ddx * ddx + ddy * ddy)
+                if (dist < CONNECTION_DIST) {
+                  const alpha = (1 - dist / CONNECTION_DIST) * (0.2 + p.influence * 0.3)
+                  const bucket = alpha < 0.06 ? 0 : alpha < 0.1 ? 1 : alpha < 0.15 ? 2 : 3
+                  buckets[bucket].push(p.x, p.y, other.x, other.y)
+                }
+              }
             }
           }
-        })
+        }
+
+        for (let b = 0; b < 4; b++) {
+          const lines = buckets[b]
+          if (lines.length === 0) continue
+          context.beginPath()
+          for (let k = 0; k < lines.length; k += 4) {
+            context.moveTo(lines[k], lines[k + 1])
+            context.lineTo(lines[k + 2], lines[k + 3])
+          }
+          context.strokeStyle = `rgba(${color}, ${bucketAlphas[b]})`
+          context.stroke()
+        }
 
         // Limit cursor connections so the background stays clear around text.
         if (interacting) {
-          positions
-            .map((point) => ({ ...point, distance: Math.hypot(point.x - glow.x, point.y - glow.y) }))
-            .filter((point) => point.distance < interactionRadius)
-            .sort((a, b) => a.distance - b.distance)
-            .slice(0, 7)
-            .forEach((point) => {
-            context.beginPath()
-            context.moveTo(point.x, point.y)
+          let closest = []
+          for (let i = 0; i < points.length; i++) {
+            const p = positions[i]
+            const dist = Math.hypot(p.x - glow.x, p.y - glow.y)
+            if (dist < interactionRadius) {
+              closest.push({ x: p.x, y: p.y, distance: dist })
+            }
+          }
+          closest.sort((a, b) => a.distance - b.distance)
+          if (closest.length > 7) closest.length = 7
+
+          context.beginPath()
+          for (let i = 0; i < closest.length; i++) {
+            context.moveTo(closest[i].x, closest[i].y)
             context.lineTo(glow.x, glow.y)
-            context.strokeStyle = `rgba(${color}, ${(1 - point.distance / interactionRadius) * 0.5 * glow.opacity})`
-            context.stroke()
-            })
+          }
+          context.strokeStyle = `rgba(${color}, ${0.35 * glow.opacity})`
+          context.stroke()
         }
       }
 
@@ -114,6 +205,7 @@ export default function InteractiveBackground() {
           offsetX: 0,
           offsetY: 0,
         }))
+        positions = new Array(count)
         draw()
       }
       const themeRoot = canvas.closest('.scheme-dark, .scheme-light')
