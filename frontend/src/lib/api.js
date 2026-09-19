@@ -97,6 +97,8 @@ export async function escalateToHuman({ baseURL = import.meta.env?.VITE_API_BASE
       score: item.score,
       authority_tier: item.authority_tier || null,
       rag_source: item.rag_source || 'RAG',
+      ...Object.fromEntries(['record_id', 'version', 'effective_from', 'effective_to', 'evidence_category', 'evidence_freshness', 'verification_status', 'verification_items', 'source_refs']
+        .filter((key) => item[key] !== undefined).map((key) => [key, item[key]])),
     })),
   })
   return data

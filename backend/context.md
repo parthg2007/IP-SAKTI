@@ -305,7 +305,7 @@ IP-Sakti/
   - Section 3(e) Patents Act (Mere Admixture & Synergism Requirement)
   - Section 6 Biological Diversity Act (Mandatory NBA Approval for IPR)
   - Section 40 Biological Diversity Act (Normally Traded Commodities Exemption)
-  - ABS Regulations 2014 (Benefit sharing percentages: 0.1% to 0.5% of gross sales)
+  - Legacy ABS corpus reference (benefit-sharing percentages require human verification). `verification_status: "needs_human_verification"`; see `data/rules/verification_items.json` (`abs-legacy`) and `../docs/RECON.md`. No current rate is determined from this reference.
 - Allows full end-to-end testing of dual-RAG queries today before RAG 2 is built.
 
 #### [`app/orchestrator/registry.py`](file:///Users/parth/Desktop/IP-Sakti/app/orchestrator/registry.py)

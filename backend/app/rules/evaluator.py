@@ -54,7 +54,7 @@ def evaluate_rules(context: RuleContext, selection: RuleSelection, rule_set: Rul
         if not trace.matched:
             continue
         sources = [rule_set.sources[ref] for ref in rule.source_refs]
-        retrieved = [source.source_id for source in sources if set(source.record_ids).intersection(context.citation_ids)]
+        retrieved = [source.source_id for source in sources if source.source_id in context.retrieved_source_ids]
         temporal = "in_recorded_interval" if selection.mode == "strict" else "unresolved"
         ready = (selection.mode == "strict" and rule.verification_status == "verified"
                  and all(source.verification_status == "verified" for source in sources)

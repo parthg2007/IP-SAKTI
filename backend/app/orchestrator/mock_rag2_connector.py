@@ -3,6 +3,7 @@ import re
 from typing import List, Dict, Any, Tuple, Optional
 from app.orchestrator.base_connector import BaseRAGConnector
 from app.data.models import RAGEvidence
+from app.rules.provenance import annotate_evidence
 
 # Authoritative statutory corpus for RAG 2 legal conclusions
 LEGAL_STATUTES = [
@@ -25,6 +26,7 @@ LEGAL_STATUTES = [
     {
         "document_id": "STATUTE-PATENTS-ACT-1970",
         "chunk_id": "RAG2-SEC-003E",
+        "verification_status": "unverified",
         "title": "Section 3(e) - The Patents Act, 1970 (Mere Admixture & Synergism)",
         "source_name": "Ministry of Law and Justice, Government of India",
         "source_url": "https://ipindia.gov.in/acts-rules-patents.htm",
@@ -70,6 +72,8 @@ LEGAL_STATUTES = [
     {
         "document_id": "REGULATION-ABS-2014",
         "chunk_id": "RAG2-REG-ABS-MATRIX",
+        "verification_status": "needs_human_verification",
+        "verification_id": "abs-legacy",
         "title": "Guidelines on Access to Biological Resources and Associated Knowledge and Benefits Sharing Regulations, 2014",
         "source_name": "National Biodiversity Authority Gazette Notification",
         "source_url": "https://nbaindia.nic.in/acts-and-rules/regulations",
@@ -135,7 +139,7 @@ class MockRAG2Connector(BaseRAGConnector):
         evidence: List[RAGEvidence] = []
         for stat, score in scored_statutes[:top_k]:
             evidence.append(
-                RAGEvidence(
+                annotate_evidence(RAGEvidence(
                     document_id=stat["document_id"],
                     chunk_id=stat["chunk_id"],
                     title=stat["title"],
@@ -145,8 +149,10 @@ class MockRAG2Connector(BaseRAGConnector):
                     domain=stat["domain"],
                     score=round(score, 4),
                     authority_tier=self.authority_tier,
-                    rag_source="RAG2"
-                )
+                    rag_source="RAG2",
+                    evidence_category="legal_regulatory",
+                    verification_status=stat.get("verification_status", "needs_human_verification"),
+                ))
             )
         return evidence
 

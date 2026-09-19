@@ -30,7 +30,7 @@
     "conclusion_template": {
       "rule": "Patents Act Section 3(p) — Traditional Knowledge Exclusion",
       "status": "APPLICABLE_BARRIER",
-      "finding": "Raw biological substances or known traditional uses in TKDL cannot be patented. Claims must be restricted to novel extraction processes, synergistic combinations, or non-obvious therapeutic modifications.",
+      "finding": "Review traditional-knowledge overlap based on the accessible evidence corpus. TKDL is restricted-access and non-exhaustive; this keyword match does not establish patentability.",
       "mitigation": "Establish evidence of non-obvious technological intervention, technical step, or novel standardized dosage form."
     },
     "source_refs": [
@@ -64,7 +64,7 @@
       "rule": "Patents Act Section 3(e) — Mere Admixture Bar",
       "status": "EVIDENTIARY_BURDEN",
       "finding": "Combining multiple herbs is considered a mere aggregation of known properties unless unexpected synergism is quantitatively proven.",
-      "mitigation": "Submit comparative in-vitro / in-vivo combination index (CI < 1) or empirical pharmacological data demonstrating synergy."
+      "mitigation": "Obtain appropriate comparative evidence of synergy. TODO: the legacy numerical test requires human verification; no mandatory threshold is established here."
     },
     "source_refs": [
       "patents-admixture",

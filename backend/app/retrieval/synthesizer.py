@@ -1,6 +1,7 @@
 """Context and evidence synthesis module."""
 from typing import List, Tuple
 from app.data.models import KnowledgeChunk, RAGEvidence
+from app.rules.provenance import annotate_evidence
 
 
 def build_evidence_list(results: List[Tuple[KnowledgeChunk, float]]) -> List[RAGEvidence]:
@@ -8,7 +9,7 @@ def build_evidence_list(results: List[Tuple[KnowledgeChunk, float]]) -> List[RAG
     evidence: List[RAGEvidence] = []
     for chunk, score in results:
         evidence.append(
-            RAGEvidence(
+            annotate_evidence(RAGEvidence(
                 document_id=chunk.document_id,
                 chunk_id=chunk.chunk_id,
                 title=chunk.title,
@@ -18,8 +19,11 @@ def build_evidence_list(results: List[Tuple[KnowledgeChunk, float]]) -> List[RAG
                 domain=chunk.domain,
                 score=score,
                 authority_tier=chunk.authority_tier,
-                rag_source="RAG1"
-            )
+                rag_source="RAG1",
+                record_id=chunk.record_id,
+                version=chunk.document_version,
+                evidence_category="traditional_knowledge" if chunk.domain in ("Prior Art & Classical Literature", "AYURVEDA", "Medicinal Plants") else "unclassified",
+            ))
         )
     return evidence
 

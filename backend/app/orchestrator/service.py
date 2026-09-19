@@ -100,6 +100,10 @@ class MultiRAGOrchestratorService:
                 logger.error("Error querying RAG '%s': %s", connector.rag_id, res)
                 continue
             ans_context, ev_list, score = res
+            # Preserve connector identity and keep patent prior art distinct from TK.
+            category = {"authoritative_legal": "legal_regulatory", "prior_art": "patent_prior_art"}.get(connector.role)
+            if category:
+                ev_list = [evidence.model_copy(update={"evidence_category": category}) for evidence in ev_list]
             responded_rags.append(connector.rag_id)
             retrieval_scores.append(float(score or 0.0))
             all_citations.extend(ev_list)

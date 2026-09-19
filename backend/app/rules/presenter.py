@@ -35,6 +35,8 @@ def render_trace(context: RuleContext, evaluation: RuleEvaluation, rule_set: Rul
         or any(term in context.query.lower() for term in item.query_terms)
     )]
     refs = presentation.source_refs if primary else []
+    audit_refs = set(refs) | {ref for item in reviews for ref in item.source_refs}
+    audit_refs.update(source.source_id for match in evaluation.matches for source in match.citations)
     audit = ReasoningAudit(
         evaluation=evaluation,
         presentation=ClaimAudit(citations=[rule_set.sources[ref] for ref in refs],
@@ -42,6 +44,7 @@ def render_trace(context: RuleContext, evaluation: RuleEvaluation, rule_set: Rul
                                 verification_status="needs_human_verification",
                                 human_verification_items=["Trace and checklist preserve legacy keyword behavior; verify every legal interpretation and its applicability."] if primary else []),
         evidence_groups=evidence_groups, verification_items=reviews,
+        sources={ref: rule_set.sources[ref] for ref in sorted(audit_refs)},
         scope_note=presentation.scope_note, disclaimer=presentation.disclaimer,
     )
     return AgenticReasoningResponse(intent=intent, subgraph=subgraph, reasoning_steps=steps,

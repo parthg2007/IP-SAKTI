@@ -22,10 +22,24 @@ function DocumentDetails({ documentId }) {
   </div>
 }
 
+const evidenceLabels = {
+  traditional_knowledge: 'Traditional-knowledge evidence',
+  patent_prior_art: 'Patent prior-art evidence',
+  legal_regulatory: 'Legal/regulatory evidence',
+  unclassified: 'Other domain evidence (unclassified)',
+}
+
 export default function EvidenceList({ items = [], legal = false }) {
   const [openDocument, setOpenDocument] = useState(null)
+  // Assign references before grouping so the answer's [S#] markers stay stable.
+  const referenced = items.map((item, index) => ({ ...item, ref: item.ref || `S${index + 1}` }))
+  const groups = Object.keys(evidenceLabels).map((category) => ({ category,
+    items: referenced.filter((item) => (item.evidence_category || (legal ? 'legal_regulatory' : 'unclassified')) === category),
+  })).filter((group) => group.items.length)
   return <div className="research-evidence" aria-label="Sources">
-    {items.map((item, index) => {
+    {groups.map((group) => <section key={group.category} aria-label={evidenceLabels[group.category]}>
+      <h4>{evidenceLabels[group.category]}</h4>
+    {group.items.map((item, index) => {
       const url = safeSourceUrl(item.source_url || item.url)
       const id = item.chunk_id || item.id || index
       const documentId = item.document_id || item.documentId
@@ -35,7 +49,10 @@ export default function EvidenceList({ items = [], legal = false }) {
           <p>{item.source_name || item.sourceName || item.authority_tier} {item.domain && `· ${item.domain}`}</p>
           {item.jurisdiction && <p>Jurisdiction: {item.jurisdiction}</p>}
           {(item.section || item.rule || item.article) && <p>{[item.section && `Section ${item.section}`, item.rule && `Rule ${item.rule}`, item.article && `Article ${item.article}`].filter(Boolean).join(' · ')}</p>}
-          {item.version && <p>Version {item.version}{item.effective_from && ` · Effective from ${item.effective_from}`}</p>}
+          <p>Version {item.version || 'unknown'} · Effective date {item.effective_from || 'unknown'}</p>
+          {item.evidence_freshness && <p>Evidence freshness: {item.evidence_freshness.status.replaceAll('_', ' ')}. {item.evidence_freshness.note}</p>}
+          {item.verification_status && <p>Verification: {item.verification_status.replaceAll('_', ' ')}</p>}
+          {item.verification_items?.map((review) => <p key={review.id}>{review.note}</p>)}
           <p className="research-excerpt">{item.text || item.excerpt}</p>
           <p className="research-muted">{item.chunk_id}{typeof item.score === 'number' && ` · Retrieval score ${item.score.toFixed(4)}`}{item.retrieval_method && ` · ${item.retrieval_method}`}</p>
           <div className="research-actions">
@@ -45,6 +62,6 @@ export default function EvidenceList({ items = [], legal = false }) {
           {openDocument === id && documentId && <DocumentDetails key={documentId} documentId={documentId} />}
         </div>
       </details>
-    })}
+    })}</section>)}
   </div>
 }

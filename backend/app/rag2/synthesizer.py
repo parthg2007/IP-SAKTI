@@ -3,6 +3,7 @@ import logging
 from typing import List, Tuple, Optional
 from app.rag2.models import LegalEvidenceChunk, LegalCitation
 from app.data.models import RAGEvidence
+from app.rules.provenance import annotate_evidence
 
 logger = logging.getLogger(__name__)
 
@@ -15,7 +16,7 @@ def build_legal_citations(hits: List[Tuple[LegalEvidenceChunk, float]]) -> Tuple
     for chunk, score in hits:
         # Standard RAGEvidence for orchestrator fusion
         rag_evidences.append(
-            RAGEvidence(
+            annotate_evidence(RAGEvidence(
                 document_id=chunk.document_id,
                 chunk_id=chunk.chunk_id,
                 title=f"{chunk.document_title}" + (f" - Section {chunk.section}" if chunk.section else ""),
@@ -25,8 +26,13 @@ def build_legal_citations(hits: List[Tuple[LegalEvidenceChunk, float]]) -> Tuple
                 domain=chunk.domain,
                 score=round(score, 4),
                 authority_tier=chunk.authority_tier,
-                rag_source="RAG2"
-            )
+                rag_source="RAG2",
+                record_id=chunk.record_id,
+                version=chunk.version,
+                effective_from=chunk.effective_from,
+                effective_to=chunk.effective_to,
+                evidence_category="legal_regulatory",
+            ))
         )
 
         # Precise LegalCitation

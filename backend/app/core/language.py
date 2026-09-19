@@ -97,6 +97,9 @@ TERM_NORMALIZATION_MAP: Dict[str, Dict[str, any]] = {
         "domain": "Statutory Law"
     },
     "NBA_ABS_FORMS": {
+        "verification_id": "abs-legacy",
+        "verification_status": "needs_human_verification",
+        "verification_note": "Matching aliases only; see data/rules/verification_items.json for the source audit. No current rate is established.",
         "canonical": "Access and Benefit Sharing (ABS) & NBA Forms I, II, III, IV",
         "keywords": [
             "form i", "form ii", "form iii", "form iv", "form 1", "form 2", "form 3", "form 4",

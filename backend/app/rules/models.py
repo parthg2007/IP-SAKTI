@@ -69,6 +69,7 @@ class RuleSourceRef(StrictModel):
     corpus_file: str | None = None
     corpus_sha256: str | None = Field(default=None, pattern=r"^[0-9a-f]{64}$")
     record_ids: list[str] = Field(default_factory=list)
+    evidence_category: EvidenceCategory = "legal_regulatory"
     verification_status: VerificationStatus
     note: str = Field(min_length=1)
 
@@ -155,6 +156,7 @@ class RuleContext(StrictModel):
     jurisdiction: str
     route_intent: str = "hybrid"
     citation_ids: list[str] = Field(default_factory=list)
+    retrieved_source_ids: list[str] = Field(default_factory=list)
     graph_node_ids: list[str] = Field(default_factory=list)
 
 
@@ -216,6 +218,7 @@ class ReasoningAudit(StrictModel):
     presentation: ClaimAudit
     evidence_groups: EvidenceGroups
     verification_items: list[VerificationItem]
+    sources: dict[str, RuleSourceRef]
     scope_note: str
     disclaimer: str
 

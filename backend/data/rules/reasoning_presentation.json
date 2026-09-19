@@ -53,19 +53,19 @@
     {
       "step": 3,
       "title": "Dual-RAG Evidence Fusion",
-      "summary": "Cross-verified {citation_count} authoritative citations across domain knowledge and legal evidence.",
-      "details": "Retrieved classical baseline formulation data alongside statutory provisions."
+      "summary": "Retrieved {citation_count} citations for separate domain and legal review.",
+      "details": "Retrieval does not establish legal applicability or a complete prior-art search."
     },
     {
       "step": 4,
       "title": "Statutory Conflict & Compliance Evaluation",
       "summary": "Evaluated {check_count} statutory criteria (Section 3(p), Section 3(e), and Section 6 NBA clearances).",
-      "details": "Verified timing prerequisites: NBA Form III clearance is required prior to patent grant."
+      "details": "Approval timing and applicability require human verification against the cited sources."
     },
     {
       "step": 5,
       "title": "Synthesis with Grounded Evidence",
-      "summary": "Formulated structured actionable guidance backed by verified source citations.",
+      "summary": "Prepared a deterministic review checklist; legal interpretations require human verification.",
       "details": "Structured executive summary, domain analysis, statutory framework, and strategic next steps."
     }
   ],
@@ -83,7 +83,7 @@
   ],
   "path_fallback": "Direct statutory review",
   "action_plan": [
-    "Perform comprehensive prior-art search in TKDL and IPO / WIPO databases.",
+    "Review traditional-knowledge evidence based on the accessible evidence corpus, and obtain a separate patent prior-art search. TKDL is restricted-access and non-exhaustive.",
     "Verify whether biological resources are sourced within India to initiate NBA Form III filing.",
     "Generate empirical synergism data if claiming polyherbal composition to overcome Section 3(e).",
     "Disclose geographical origin under Section 10(4)(d) of the Patents Act, 1970."

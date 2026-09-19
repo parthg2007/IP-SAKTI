@@ -123,7 +123,7 @@ def test_no_rules_for_other_jurisdiction_and_legacy_matches_are_not_decisions():
 
 def test_exact_retrieved_record_identity_not_just_related_text():
     rules = load_rule_set(settings.RULES_DIR)
-    context = RuleContext(query="hello", jurisdiction="INDIA", citation_ids=["RAG2-03458"])
+    context = RuleContext(query="hello", jurisdiction="INDIA", citation_ids=["RAG2-03458"], retrieved_source_ids=["patents-tk"])
     result = evaluate_rules(context, select_legacy_rules(rules, "INDIA"), rules)
     assert result.matches[0].retrieved_source_ids == ["patents-tk"]
     assert not result.matches[0].determination_ready

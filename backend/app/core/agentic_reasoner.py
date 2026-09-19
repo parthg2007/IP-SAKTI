@@ -9,6 +9,7 @@ from app.rules.evaluator import evaluate_rules, select_legacy_rules, select_rule
 from app.rules.loader import get_rule_set
 from app.rules.models import EvidenceGroups, RuleContext
 from app.rules.presenter import render_trace
+from app.rules.provenance import resolve_retrieved_sources
 
 
 class AgenticReasoner:
@@ -22,7 +23,8 @@ class AgenticReasoner:
         rule_set = get_rule_set()
         context = RuleContext(
             query=query or "", jurisdiction=jurisdiction, route_intent=route_intent,
-            citation_ids=[citation.chunk_id for citation in citations if getattr(citation, "chunk_id", None)],
+            citation_ids=sorted({identity for citation in citations for identity in (citation.chunk_id, citation.record_id) if identity}),
+            retrieved_source_ids=resolve_retrieved_sources(citations, rule_set),
             graph_node_ids=[node["id"] for node in subgraph["nodes"]],
         )
         groups = EvidenceGroups().model_dump()

@@ -127,7 +127,8 @@
       "RAG1-AYUSH-0016"
     ],
     "verification_status": "needs_human_verification",
-    "note": "Auxiliary domain seed; not independently sufficient legal evidence."
+    "note": "Auxiliary domain seed; not independently sufficient legal evidence.",
+    "evidence_category": "unclassified"
   },
   {
     "source_id": "legacy-synergy-candidate",

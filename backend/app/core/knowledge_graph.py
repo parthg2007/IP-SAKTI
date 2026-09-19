@@ -258,13 +258,15 @@ class RelationalKnowledgeGraph:
         if "sec_3e" in final_node_ids or "form_polyherbal" in final_node_ids:
             reasoning_paths.append("Polyherbal Composition ➔ Section 3(e) Admixture Test ➔ Empirical Synergistic Data Proof")
 
-        return {
+        from app.rules.provenance import annotate_graph
+
+        return annotate_graph({
             "nodes": final_nodes,
             "edges": final_edges,
             "reasoning_paths": reasoning_paths,
             "total_nodes": len(final_nodes),
             "total_edges": len(final_edges)
-        }
+        })
 
 
 knowledge_graph = RelationalKnowledgeGraph()

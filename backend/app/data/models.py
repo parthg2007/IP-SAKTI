@@ -1,6 +1,7 @@
 """Pydantic schemas and data models for IP-SAKTI RAG backend."""
 from typing import List, Optional, Dict, Any, Literal
 from pydantic import BaseModel, Field, field_validator
+from app.rules.models import AgenticReasoningResponse, EvidenceCategory, EvidenceFreshness, RuleSourceRef, VerificationItem, VerificationStatus
 
 # -----------------------------------------------------------------------------
 # Core Knowledge Chunk Model
@@ -43,6 +44,15 @@ class RAGEvidence(BaseModel):
     score: Optional[float] = Field(None, description="Retrieval / relevance score")
     authority_tier: Optional[str] = Field(None, description="Authority level of source")
     rag_source: Optional[str] = Field("RAG1", description="RAG unit providing this evidence")
+    record_id: Optional[str] = None
+    version: Optional[str] = None
+    effective_from: Optional[str] = None
+    effective_to: Optional[str] = None
+    evidence_category: EvidenceCategory = "unclassified"
+    evidence_freshness: EvidenceFreshness = Field(default_factory=EvidenceFreshness)
+    verification_status: VerificationStatus = "needs_human_verification"
+    verification_items: List[VerificationItem] = Field(default_factory=list)
+    source_refs: List[RuleSourceRef] = Field(default_factory=list)
 
 
 # -----------------------------------------------------------------------------
@@ -173,7 +183,7 @@ class MultiRAGQueryResponse(BaseModel):
     connected_rags_responded: List[str]
     legal_disclaimer: str
     graph: Optional[Dict[str, Any]] = None
-    agentic_reasoning: Optional[Dict[str, Any]] = None
+    agentic_reasoning: Optional[AgenticReasoningResponse] = None
 
 
 class RAGRegistrationRequest(BaseModel):

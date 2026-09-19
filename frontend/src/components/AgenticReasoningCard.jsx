@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Icon from './LandingIcon.jsx'
+import RuleAudit from './RuleAudit.jsx'
 
 export default function AgenticReasoningCard({ reasoning, graph }) {
   const [isOpen, setIsOpen] = useState(false)
@@ -42,6 +43,7 @@ export default function AgenticReasoningCard({ reasoning, graph }) {
           <Icon name="arrow" className={`size-3.5 transition-transform duration-200 ${isOpen ? '-rotate-90' : 'rotate-90'}`} />
         </div>
       </button>
+      {reasoning?.audit && <p className="px-4 pb-3 text-xs text-[var(--lp-gold)]">Decision support · Human verification required · Evidence currency unverified</p>}
 
       {isOpen && (
         <div className="border-t border-[var(--lp-line)] px-4 py-4 space-y-5 bg-[var(--lp-card)]/60">
@@ -86,7 +88,7 @@ export default function AgenticReasoningCard({ reasoning, graph }) {
                           ? 'bg-amber-500/15 text-amber-700 dark:text-amber-400'
                           : 'bg-[var(--lp-accent)]/20 text-[var(--lp-accent)]'
                       }`}>
-                        {(sc.status || 'REVIEW').replaceAll('_', ' ')}
+                        {reasoning?.audit ? 'Needs human verification' : (sc.status || 'REVIEW').replaceAll('_', ' ')}
                       </span>
                     </div>
                     <p className="mt-1.5 text-xs text-[var(--lp-muted)] leading-relaxed">{sc.finding}</p>
@@ -111,7 +113,7 @@ export default function AgenticReasoningCard({ reasoning, graph }) {
                 {nodes.map((node) => (
                   <span
                     key={node.id}
-                    title={node.description}
+                    title={node.audit ? `Unverified legacy statement. ${node.audit.human_verification_items.join(' ')}` : node.description}
                     className="inline-flex items-center gap-1.5 rounded-lg border border-[var(--lp-line)] bg-[var(--lp-surface)] px-2.5 py-1 text-xs text-[var(--lp-ink)] hover:border-[var(--lp-accent)]"
                   >
                     <span className={`size-1.5 rounded-full ${
@@ -120,7 +122,7 @@ export default function AgenticReasoningCard({ reasoning, graph }) {
                       node.category === 'Regulatory Authority' ? 'bg-amber-500' :
                       node.category === 'Compliance Filing' ? 'bg-cyan-500' : 'bg-[var(--lp-accent)]'
                     }`} />
-                    {node.label}
+                    {node.label}{node.audit && ' · Review required'}
                   </span>
                 ))}
               </div>
@@ -136,7 +138,7 @@ export default function AgenticReasoningCard({ reasoning, graph }) {
                 </div>
               )}
               {edges.length > 0 && <ul className="mt-3 space-y-2 text-xs text-[var(--lp-muted)]" aria-label="Knowledge graph relationships">
-                {edges.map((edge, index) => <li key={index}>{nodes.find((node) => node.id === edge.source)?.label || edge.source} → {nodes.find((node) => node.id === edge.target)?.label || edge.target}<span className="block">{edge.label || edge.relation}</span></li>)}
+                {edges.map((edge, index) => <li key={index}>{nodes.find((node) => node.id === edge.source)?.label || edge.source} → {nodes.find((node) => node.id === edge.target)?.label || edge.target}<span className="block">{edge.audit ? edge.audit.human_verification_items.join(' ') : edge.label || edge.relation}</span></li>)}
               </ul>}
             </div>
           )}
@@ -157,6 +159,7 @@ export default function AgenticReasoningCard({ reasoning, graph }) {
               </ul>
             </div>
           )}
+          <RuleAudit audit={reasoning?.audit} />
         </div>
       )}
     </div>
