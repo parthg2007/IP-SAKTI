@@ -1,0 +1,2785 @@
+{
+  "baseline_commit": "bb8f710",
+  "verification_status": "unverified",
+  "source_url": "https://ipindia.gov.in/acts-rules-patents.htm",
+  "note": "Historical software output, not legal authority. Candidate URL copied from the existing mock. It does not validate the numerical synergy assertion; needs_human_verification. Corpus-backed legacy ABS figures remain subject to human verification.",
+  "cases": [
+    {
+      "name": "case_00",
+      "input": {
+        "query": "hello",
+        "citations": [],
+        "jurisdiction": "INDIA",
+        "route_intent": "hybrid"
+      },
+      "expected": {
+        "intent": "Patentability & Regulatory Compliance",
+        "subgraph": {
+          "nodes": [],
+          "edges": [],
+          "reasoning_paths": [],
+          "total_nodes": 0,
+          "total_edges": 0
+        },
+        "reasoning_steps": [
+          {
+            "step": 1,
+            "title": "Intent & Jurisdiction Scope",
+            "summary": "Target jurisdiction: INDIA. Intent class: Patentability & Regulatory Compliance.",
+            "details": "Assessed jurisdictional boundary and parsed patentability vs regulatory requirements."
+          },
+          {
+            "step": 2,
+            "title": "Knowledge Graph Traversal",
+            "summary": "Identified 0 relational nodes and 0 active statutory links.",
+            "details": "Active legal paths: Direct statutory review"
+          },
+          {
+            "step": 3,
+            "title": "Dual-RAG Evidence Fusion",
+            "summary": "Cross-verified 0 authoritative citations across domain knowledge and legal evidence.",
+            "details": "Retrieved classical baseline formulation data alongside statutory provisions."
+          },
+          {
+            "step": 4,
+            "title": "Statutory Conflict & Compliance Evaluation",
+            "summary": "Evaluated 1 statutory criteria (Section 3(p), Section 3(e), and Section 6 NBA clearances).",
+            "details": "Verified timing prerequisites: NBA Form III clearance is required prior to patent grant."
+          },
+          {
+            "step": 5,
+            "title": "Synthesis with Grounded Evidence",
+            "summary": "Formulated structured actionable guidance backed by verified source citations.",
+            "details": "Structured executive summary, domain analysis, statutory framework, and strategic next steps."
+          }
+        ],
+        "statutory_checks": [
+          {
+            "rule": "Patents Act Section 3(p) — Traditional Knowledge Exclusion",
+            "status": "APPLICABLE_BARRIER",
+            "finding": "Raw biological substances or known traditional uses in TKDL cannot be patented. Claims must be restricted to novel extraction processes, synergistic combinations, or non-obvious therapeutic modifications.",
+            "mitigation": "Establish evidence of non-obvious technological intervention, technical step, or novel standardized dosage form."
+          }
+        ],
+        "action_plan": [
+          "Perform comprehensive prior-art search in TKDL and IPO / WIPO databases.",
+          "Verify whether biological resources are sourced within India to initiate NBA Form III filing.",
+          "Generate empirical synergism data if claiming polyherbal composition to overcome Section 3(e).",
+          "Disclose geographical origin under Section 10(4)(d) of the Patents Act, 1970."
+        ]
+      }
+    },
+    {
+      "name": "case_01",
+      "input": {
+        "query": "patent",
+        "citations": [],
+        "jurisdiction": "INDIA",
+        "route_intent": "hybrid"
+      },
+      "expected": {
+        "intent": "Patentability & Regulatory Compliance",
+        "subgraph": {
+          "nodes": [
+            {
+              "id": "law_patents_act",
+              "label": "The Patents Act, 1970",
+              "category": "Statute",
+              "keywords": [
+                "patents act",
+                "patent",
+                "indian patent office",
+                "ipo"
+              ],
+              "description": "Primary Indian legislation governing patent grant, patentability bars, and disclosure mandates."
+            },
+            {
+              "id": "sec_10_4",
+              "label": "Section 10(4)(d) — Source & Origin Disclosure",
+              "category": "Statutory Mandate",
+              "keywords": [
+                "section 10(4)",
+                "10(4)",
+                "source of biological material",
+                "geographical origin"
+              ],
+              "description": "Mandatory specification of biological material source and geographical origin in patent specifications."
+            },
+            {
+              "id": "sec_3e",
+              "label": "Section 3(e) — Mere Admixture Bar",
+              "category": "Statutory Bar",
+              "keywords": [
+                "section 3(e)",
+                "sec 3(e)",
+                "3(e)",
+                "admixture",
+                "synergism",
+                "synergy"
+              ],
+              "description": "Mere admixtures resulting only in aggregation of properties of components are unpatentable; synergistic efficacy must be proved."
+            },
+            {
+              "id": "sec_3p",
+              "label": "Section 3(p) — Traditional Knowledge Bar",
+              "category": "Statutory Bar",
+              "keywords": [
+                "section 3(p)",
+                "sec 3(p)",
+                "3(p)",
+                "traditional knowledge bar"
+              ],
+              "description": "Inventions that in effect are traditional knowledge or an aggregation or duplication of known properties are non-patentable."
+            }
+          ],
+          "edges": [
+            {
+              "source": "law_patents_act",
+              "target": "sec_3p",
+              "relation": "CONTAINS_PROVISION",
+              "label": "Statutory exclusion"
+            },
+            {
+              "source": "law_patents_act",
+              "target": "sec_3e",
+              "relation": "CONTAINS_PROVISION",
+              "label": "Statutory exclusion"
+            },
+            {
+              "source": "law_patents_act",
+              "target": "sec_10_4",
+              "relation": "MANDATES",
+              "label": "Biological origin disclosure"
+            }
+          ],
+          "reasoning_paths": [
+            "Ayurvedic Prior Art ➔ Section 3(p) TK Bar ➔ Require Novel Extraction / Synergistic Form",
+            "Polyherbal Composition ➔ Section 3(e) Admixture Test ➔ Empirical Synergistic Data Proof"
+          ],
+          "total_nodes": 4,
+          "total_edges": 3
+        },
+        "reasoning_steps": [
+          {
+            "step": 1,
+            "title": "Intent & Jurisdiction Scope",
+            "summary": "Target jurisdiction: INDIA. Intent class: Patentability & Regulatory Compliance.",
+            "details": "Assessed jurisdictional boundary and parsed patentability vs regulatory requirements."
+          },
+          {
+            "step": 2,
+            "title": "Knowledge Graph Traversal",
+            "summary": "Identified 4 relational nodes and 3 active statutory links.",
+            "details": "Active legal paths: Ayurvedic Prior Art ➔ Section 3(p) TK Bar ➔ Require Novel Extraction / Synergistic Form; Polyherbal Composition ➔ Section 3(e) Admixture Test ➔ Empirical Synergistic Data Proof"
+          },
+          {
+            "step": 3,
+            "title": "Dual-RAG Evidence Fusion",
+            "summary": "Cross-verified 0 authoritative citations across domain knowledge and legal evidence.",
+            "details": "Retrieved classical baseline formulation data alongside statutory provisions."
+          },
+          {
+            "step": 4,
+            "title": "Statutory Conflict & Compliance Evaluation",
+            "summary": "Evaluated 2 statutory criteria (Section 3(p), Section 3(e), and Section 6 NBA clearances).",
+            "details": "Verified timing prerequisites: NBA Form III clearance is required prior to patent grant."
+          },
+          {
+            "step": 5,
+            "title": "Synthesis with Grounded Evidence",
+            "summary": "Formulated structured actionable guidance backed by verified source citations.",
+            "details": "Structured executive summary, domain analysis, statutory framework, and strategic next steps."
+          }
+        ],
+        "statutory_checks": [
+          {
+            "rule": "Patents Act Section 3(p) — Traditional Knowledge Exclusion",
+            "status": "APPLICABLE_BARRIER",
+            "finding": "Raw biological substances or known traditional uses in TKDL cannot be patented. Claims must be restricted to novel extraction processes, synergistic combinations, or non-obvious therapeutic modifications.",
+            "mitigation": "Establish evidence of non-obvious technological intervention, technical step, or novel standardized dosage form."
+          },
+          {
+            "rule": "Biological Diversity Act Section 6(1) — Mandatory NBA Approval",
+            "status": "MANDATORY_PREREQUISITE",
+            "finding": "Commercial patent filing based on Indian biological resources strictly requires prior approval from the National Biodiversity Authority (Form III). Section 40 NTC commodity exemption does NOT apply to IPR applications.",
+            "mitigation": "Submit NBA Form III immediately after patent application and obtain formal clearance prior to patent grant."
+          }
+        ],
+        "action_plan": [
+          "Perform comprehensive prior-art search in TKDL and IPO / WIPO databases.",
+          "Verify whether biological resources are sourced within India to initiate NBA Form III filing.",
+          "Generate empirical synergism data if claiming polyherbal composition to overcome Section 3(e).",
+          "Disclose geographical origin under Section 10(4)(d) of the Patents Act, 1970."
+        ]
+      }
+    },
+    {
+      "name": "case_02",
+      "input": {
+        "query": "formulation",
+        "citations": [],
+        "jurisdiction": "INDIA",
+        "route_intent": "hybrid"
+      },
+      "expected": {
+        "intent": "Patentability & Regulatory Compliance",
+        "subgraph": {
+          "nodes": [
+            {
+              "id": "form_polyherbal",
+              "label": "Polyherbal / Classical Formulation",
+              "category": "Formulation",
+              "keywords": [
+                "formulation",
+                "polyherbal",
+                "admixture",
+                "triphala",
+                "chyawanprash",
+                "kwath",
+                "churna",
+                "taila"
+              ],
+              "description": "Ayurvedic combination formulation combining two or more herbal extracts or raw biological substances."
+            },
+            {
+              "id": "sec_3e",
+              "label": "Section 3(e) — Mere Admixture Bar",
+              "category": "Statutory Bar",
+              "keywords": [
+                "section 3(e)",
+                "sec 3(e)",
+                "3(e)",
+                "admixture",
+                "synergism",
+                "synergy"
+              ],
+              "description": "Mere admixtures resulting only in aggregation of properties of components are unpatentable; synergistic efficacy must be proved."
+            },
+            {
+              "id": "sec_3p",
+              "label": "Section 3(p) — Traditional Knowledge Bar",
+              "category": "Statutory Bar",
+              "keywords": [
+                "section 3(p)",
+                "sec 3(p)",
+                "3(p)",
+                "traditional knowledge bar"
+              ],
+              "description": "Inventions that in effect are traditional knowledge or an aggregation or duplication of known properties are non-patentable."
+            }
+          ],
+          "edges": [
+            {
+              "source": "form_polyherbal",
+              "target": "sec_3e",
+              "relation": "MUST_OVERCOME",
+              "label": "Must prove synergistic efficacy"
+            },
+            {
+              "source": "form_polyherbal",
+              "target": "sec_3p",
+              "relation": "MUST_OVERCOME",
+              "label": "Traditional knowledge bar risk"
+            }
+          ],
+          "reasoning_paths": [
+            "Ayurvedic Prior Art ➔ Section 3(p) TK Bar ➔ Require Novel Extraction / Synergistic Form",
+            "Polyherbal Composition ➔ Section 3(e) Admixture Test ➔ Empirical Synergistic Data Proof"
+          ],
+          "total_nodes": 3,
+          "total_edges": 2
+        },
+        "reasoning_steps": [
+          {
+            "step": 1,
+            "title": "Intent & Jurisdiction Scope",
+            "summary": "Target jurisdiction: INDIA. Intent class: Patentability & Regulatory Compliance.",
+            "details": "Assessed jurisdictional boundary and parsed patentability vs regulatory requirements."
+          },
+          {
+            "step": 2,
+            "title": "Knowledge Graph Traversal",
+            "summary": "Identified 3 relational nodes and 2 active statutory links.",
+            "details": "Active legal paths: Ayurvedic Prior Art ➔ Section 3(p) TK Bar ➔ Require Novel Extraction / Synergistic Form; Polyherbal Composition ➔ Section 3(e) Admixture Test ➔ Empirical Synergistic Data Proof"
+          },
+          {
+            "step": 3,
+            "title": "Dual-RAG Evidence Fusion",
+            "summary": "Cross-verified 0 authoritative citations across domain knowledge and legal evidence.",
+            "details": "Retrieved classical baseline formulation data alongside statutory provisions."
+          },
+          {
+            "step": 4,
+            "title": "Statutory Conflict & Compliance Evaluation",
+            "summary": "Evaluated 2 statutory criteria (Section 3(p), Section 3(e), and Section 6 NBA clearances).",
+            "details": "Verified timing prerequisites: NBA Form III clearance is required prior to patent grant."
+          },
+          {
+            "step": 5,
+            "title": "Synthesis with Grounded Evidence",
+            "summary": "Formulated structured actionable guidance backed by verified source citations.",
+            "details": "Structured executive summary, domain analysis, statutory framework, and strategic next steps."
+          }
+        ],
+        "statutory_checks": [
+          {
+            "rule": "Patents Act Section 3(p) — Traditional Knowledge Exclusion",
+            "status": "APPLICABLE_BARRIER",
+            "finding": "Raw biological substances or known traditional uses in TKDL cannot be patented. Claims must be restricted to novel extraction processes, synergistic combinations, or non-obvious therapeutic modifications.",
+            "mitigation": "Establish evidence of non-obvious technological intervention, technical step, or novel standardized dosage form."
+          },
+          {
+            "rule": "Patents Act Section 3(e) — Mere Admixture Bar",
+            "status": "EVIDENTIARY_BURDEN",
+            "finding": "Combining multiple herbs is considered a mere aggregation of known properties unless unexpected synergism is quantitatively proven.",
+            "mitigation": "Submit comparative in-vitro / in-vivo combination index (CI < 1) or empirical pharmacological data demonstrating synergy."
+          }
+        ],
+        "action_plan": [
+          "Perform comprehensive prior-art search in TKDL and IPO / WIPO databases.",
+          "Verify whether biological resources are sourced within India to initiate NBA Form III filing.",
+          "Generate empirical synergism data if claiming polyherbal composition to overcome Section 3(e).",
+          "Disclose geographical origin under Section 10(4)(d) of the Patents Act, 1970."
+        ]
+      }
+    },
+    {
+      "name": "case_03",
+      "input": {
+        "query": "composition",
+        "citations": [],
+        "jurisdiction": "INDIA",
+        "route_intent": "hybrid"
+      },
+      "expected": {
+        "intent": "Patentability & Regulatory Compliance",
+        "subgraph": {
+          "nodes": [],
+          "edges": [],
+          "reasoning_paths": [],
+          "total_nodes": 0,
+          "total_edges": 0
+        },
+        "reasoning_steps": [
+          {
+            "step": 1,
+            "title": "Intent & Jurisdiction Scope",
+            "summary": "Target jurisdiction: INDIA. Intent class: Patentability & Regulatory Compliance.",
+            "details": "Assessed jurisdictional boundary and parsed patentability vs regulatory requirements."
+          },
+          {
+            "step": 2,
+            "title": "Knowledge Graph Traversal",
+            "summary": "Identified 0 relational nodes and 0 active statutory links.",
+            "details": "Active legal paths: Direct statutory review"
+          },
+          {
+            "step": 3,
+            "title": "Dual-RAG Evidence Fusion",
+            "summary": "Cross-verified 0 authoritative citations across domain knowledge and legal evidence.",
+            "details": "Retrieved classical baseline formulation data alongside statutory provisions."
+          },
+          {
+            "step": 4,
+            "title": "Statutory Conflict & Compliance Evaluation",
+            "summary": "Evaluated 2 statutory criteria (Section 3(p), Section 3(e), and Section 6 NBA clearances).",
+            "details": "Verified timing prerequisites: NBA Form III clearance is required prior to patent grant."
+          },
+          {
+            "step": 5,
+            "title": "Synthesis with Grounded Evidence",
+            "summary": "Formulated structured actionable guidance backed by verified source citations.",
+            "details": "Structured executive summary, domain analysis, statutory framework, and strategic next steps."
+          }
+        ],
+        "statutory_checks": [
+          {
+            "rule": "Patents Act Section 3(p) — Traditional Knowledge Exclusion",
+            "status": "APPLICABLE_BARRIER",
+            "finding": "Raw biological substances or known traditional uses in TKDL cannot be patented. Claims must be restricted to novel extraction processes, synergistic combinations, or non-obvious therapeutic modifications.",
+            "mitigation": "Establish evidence of non-obvious technological intervention, technical step, or novel standardized dosage form."
+          },
+          {
+            "rule": "Patents Act Section 3(e) — Mere Admixture Bar",
+            "status": "EVIDENTIARY_BURDEN",
+            "finding": "Combining multiple herbs is considered a mere aggregation of known properties unless unexpected synergism is quantitatively proven.",
+            "mitigation": "Submit comparative in-vitro / in-vivo combination index (CI < 1) or empirical pharmacological data demonstrating synergy."
+          }
+        ],
+        "action_plan": [
+          "Perform comprehensive prior-art search in TKDL and IPO / WIPO databases.",
+          "Verify whether biological resources are sourced within India to initiate NBA Form III filing.",
+          "Generate empirical synergism data if claiming polyherbal composition to overcome Section 3(e).",
+          "Disclose geographical origin under Section 10(4)(d) of the Patents Act, 1970."
+        ]
+      }
+    },
+    {
+      "name": "case_04",
+      "input": {
+        "query": "curcumin",
+        "citations": [],
+        "jurisdiction": "INDIA",
+        "route_intent": "hybrid"
+      },
+      "expected": {
+        "intent": "Patentability & Regulatory Compliance",
+        "subgraph": {
+          "nodes": [
+            {
+              "id": "bio_turmeric",
+              "label": "Turmeric (Curcuma longa / Haridra)",
+              "category": "Biological Resource",
+              "keywords": [
+                "turmeric",
+                "haldi",
+                "haridra",
+                "curcuma longa",
+                "curcumin"
+              ],
+              "description": "Rhizome extensively documented in Charaka and Sushruta Samhita for anti-inflammatory, wound healing, and metabolic actions."
+            },
+            {
+              "id": "law_bda",
+              "label": "Biological Diversity Act, 2002",
+              "category": "Statute",
+              "keywords": [
+                "biological diversity act",
+                "bda",
+                "biodiversity act",
+                "biological resource"
+              ],
+              "description": "Governs conservation, sustainable use, and fair equitable benefit sharing from Indian biological resources."
+            },
+            {
+              "id": "source_tkdl",
+              "label": "Traditional Knowledge Digital Library (TKDL)",
+              "category": "Prior Art Repository",
+              "keywords": [
+                "tkdl",
+                "traditional knowledge digital library",
+                "prior art",
+                "classical text"
+              ],
+              "description": "Database containing over 450,000 digitized formulations translated into 5 international languages for patent examiner searches."
+            }
+          ],
+          "edges": [
+            {
+              "source": "bio_turmeric",
+              "target": "source_tkdl",
+              "relation": "DOCUMENTED_IN",
+              "label": "Recorded in TKDL prior art"
+            },
+            {
+              "source": "bio_turmeric",
+              "target": "law_bda",
+              "relation": "REGULATED_BY",
+              "label": "Governed as biological resource"
+            }
+          ],
+          "reasoning_paths": [
+            "Ayurvedic Prior Art ➔ Section 3(p) TK Bar ➔ Require Novel Extraction / Synergistic Form"
+          ],
+          "total_nodes": 3,
+          "total_edges": 2
+        },
+        "reasoning_steps": [
+          {
+            "step": 1,
+            "title": "Intent & Jurisdiction Scope",
+            "summary": "Target jurisdiction: INDIA. Intent class: Patentability & Regulatory Compliance.",
+            "details": "Assessed jurisdictional boundary and parsed patentability vs regulatory requirements."
+          },
+          {
+            "step": 2,
+            "title": "Knowledge Graph Traversal",
+            "summary": "Identified 3 relational nodes and 2 active statutory links.",
+            "details": "Active legal paths: Ayurvedic Prior Art ➔ Section 3(p) TK Bar ➔ Require Novel Extraction / Synergistic Form"
+          },
+          {
+            "step": 3,
+            "title": "Dual-RAG Evidence Fusion",
+            "summary": "Cross-verified 0 authoritative citations across domain knowledge and legal evidence.",
+            "details": "Retrieved classical baseline formulation data alongside statutory provisions."
+          },
+          {
+            "step": 4,
+            "title": "Statutory Conflict & Compliance Evaluation",
+            "summary": "Evaluated 2 statutory criteria (Section 3(p), Section 3(e), and Section 6 NBA clearances).",
+            "details": "Verified timing prerequisites: NBA Form III clearance is required prior to patent grant."
+          },
+          {
+            "step": 5,
+            "title": "Synthesis with Grounded Evidence",
+            "summary": "Formulated structured actionable guidance backed by verified source citations.",
+            "details": "Structured executive summary, domain analysis, statutory framework, and strategic next steps."
+          }
+        ],
+        "statutory_checks": [
+          {
+            "rule": "Patents Act Section 3(p) — Traditional Knowledge Exclusion",
+            "status": "APPLICABLE_BARRIER",
+            "finding": "Raw biological substances or known traditional uses in TKDL cannot be patented. Claims must be restricted to novel extraction processes, synergistic combinations, or non-obvious therapeutic modifications.",
+            "mitigation": "Establish evidence of non-obvious technological intervention, technical step, or novel standardized dosage form."
+          },
+          {
+            "rule": "Patents Act Section 3(e) — Mere Admixture Bar",
+            "status": "EVIDENTIARY_BURDEN",
+            "finding": "Combining multiple herbs is considered a mere aggregation of known properties unless unexpected synergism is quantitatively proven.",
+            "mitigation": "Submit comparative in-vitro / in-vivo combination index (CI < 1) or empirical pharmacological data demonstrating synergy."
+          }
+        ],
+        "action_plan": [
+          "Perform comprehensive prior-art search in TKDL and IPO / WIPO databases.",
+          "Verify whether biological resources are sourced within India to initiate NBA Form III filing.",
+          "Generate empirical synergism data if claiming polyherbal composition to overcome Section 3(e).",
+          "Disclose geographical origin under Section 10(4)(d) of the Patents Act, 1970."
+        ]
+      }
+    },
+    {
+      "name": "case_05",
+      "input": {
+        "query": "turmeric",
+        "citations": [],
+        "jurisdiction": "INDIA",
+        "route_intent": "hybrid"
+      },
+      "expected": {
+        "intent": "Patentability & Regulatory Compliance",
+        "subgraph": {
+          "nodes": [
+            {
+              "id": "bio_turmeric",
+              "label": "Turmeric (Curcuma longa / Haridra)",
+              "category": "Biological Resource",
+              "keywords": [
+                "turmeric",
+                "haldi",
+                "haridra",
+                "curcuma longa",
+                "curcumin"
+              ],
+              "description": "Rhizome extensively documented in Charaka and Sushruta Samhita for anti-inflammatory, wound healing, and metabolic actions."
+            },
+            {
+              "id": "law_bda",
+              "label": "Biological Diversity Act, 2002",
+              "category": "Statute",
+              "keywords": [
+                "biological diversity act",
+                "bda",
+                "biodiversity act",
+                "biological resource"
+              ],
+              "description": "Governs conservation, sustainable use, and fair equitable benefit sharing from Indian biological resources."
+            },
+            {
+              "id": "source_tkdl",
+              "label": "Traditional Knowledge Digital Library (TKDL)",
+              "category": "Prior Art Repository",
+              "keywords": [
+                "tkdl",
+                "traditional knowledge digital library",
+                "prior art",
+                "classical text"
+              ],
+              "description": "Database containing over 450,000 digitized formulations translated into 5 international languages for patent examiner searches."
+            }
+          ],
+          "edges": [
+            {
+              "source": "bio_turmeric",
+              "target": "source_tkdl",
+              "relation": "DOCUMENTED_IN",
+              "label": "Recorded in TKDL prior art"
+            },
+            {
+              "source": "bio_turmeric",
+              "target": "law_bda",
+              "relation": "REGULATED_BY",
+              "label": "Governed as biological resource"
+            }
+          ],
+          "reasoning_paths": [
+            "Ayurvedic Prior Art ➔ Section 3(p) TK Bar ➔ Require Novel Extraction / Synergistic Form"
+          ],
+          "total_nodes": 3,
+          "total_edges": 2
+        },
+        "reasoning_steps": [
+          {
+            "step": 1,
+            "title": "Intent & Jurisdiction Scope",
+            "summary": "Target jurisdiction: INDIA. Intent class: Patentability & Regulatory Compliance.",
+            "details": "Assessed jurisdictional boundary and parsed patentability vs regulatory requirements."
+          },
+          {
+            "step": 2,
+            "title": "Knowledge Graph Traversal",
+            "summary": "Identified 3 relational nodes and 2 active statutory links.",
+            "details": "Active legal paths: Ayurvedic Prior Art ➔ Section 3(p) TK Bar ➔ Require Novel Extraction / Synergistic Form"
+          },
+          {
+            "step": 3,
+            "title": "Dual-RAG Evidence Fusion",
+            "summary": "Cross-verified 0 authoritative citations across domain knowledge and legal evidence.",
+            "details": "Retrieved classical baseline formulation data alongside statutory provisions."
+          },
+          {
+            "step": 4,
+            "title": "Statutory Conflict & Compliance Evaluation",
+            "summary": "Evaluated 2 statutory criteria (Section 3(p), Section 3(e), and Section 6 NBA clearances).",
+            "details": "Verified timing prerequisites: NBA Form III clearance is required prior to patent grant."
+          },
+          {
+            "step": 5,
+            "title": "Synthesis with Grounded Evidence",
+            "summary": "Formulated structured actionable guidance backed by verified source citations.",
+            "details": "Structured executive summary, domain analysis, statutory framework, and strategic next steps."
+          }
+        ],
+        "statutory_checks": [
+          {
+            "rule": "Patents Act Section 3(p) — Traditional Knowledge Exclusion",
+            "status": "APPLICABLE_BARRIER",
+            "finding": "Raw biological substances or known traditional uses in TKDL cannot be patented. Claims must be restricted to novel extraction processes, synergistic combinations, or non-obvious therapeutic modifications.",
+            "mitigation": "Establish evidence of non-obvious technological intervention, technical step, or novel standardized dosage form."
+          },
+          {
+            "rule": "Biological Diversity Act Section 6(1) — Mandatory NBA Approval",
+            "status": "MANDATORY_PREREQUISITE",
+            "finding": "Commercial patent filing based on Indian biological resources strictly requires prior approval from the National Biodiversity Authority (Form III). Section 40 NTC commodity exemption does NOT apply to IPR applications.",
+            "mitigation": "Submit NBA Form III immediately after patent application and obtain formal clearance prior to patent grant."
+          }
+        ],
+        "action_plan": [
+          "Perform comprehensive prior-art search in TKDL and IPO / WIPO databases.",
+          "Verify whether biological resources are sourced within India to initiate NBA Form III filing.",
+          "Generate empirical synergism data if claiming polyherbal composition to overcome Section 3(e).",
+          "Disclose geographical origin under Section 10(4)(d) of the Patents Act, 1970."
+        ]
+      }
+    },
+    {
+      "name": "case_06",
+      "input": {
+        "query": "file",
+        "citations": [],
+        "jurisdiction": "INDIA",
+        "route_intent": "hybrid"
+      },
+      "expected": {
+        "intent": "Patentability & Regulatory Compliance",
+        "subgraph": {
+          "nodes": [],
+          "edges": [],
+          "reasoning_paths": [],
+          "total_nodes": 0,
+          "total_edges": 0
+        },
+        "reasoning_steps": [
+          {
+            "step": 1,
+            "title": "Intent & Jurisdiction Scope",
+            "summary": "Target jurisdiction: INDIA. Intent class: Patentability & Regulatory Compliance.",
+            "details": "Assessed jurisdictional boundary and parsed patentability vs regulatory requirements."
+          },
+          {
+            "step": 2,
+            "title": "Knowledge Graph Traversal",
+            "summary": "Identified 0 relational nodes and 0 active statutory links.",
+            "details": "Active legal paths: Direct statutory review"
+          },
+          {
+            "step": 3,
+            "title": "Dual-RAG Evidence Fusion",
+            "summary": "Cross-verified 0 authoritative citations across domain knowledge and legal evidence.",
+            "details": "Retrieved classical baseline formulation data alongside statutory provisions."
+          },
+          {
+            "step": 4,
+            "title": "Statutory Conflict & Compliance Evaluation",
+            "summary": "Evaluated 2 statutory criteria (Section 3(p), Section 3(e), and Section 6 NBA clearances).",
+            "details": "Verified timing prerequisites: NBA Form III clearance is required prior to patent grant."
+          },
+          {
+            "step": 5,
+            "title": "Synthesis with Grounded Evidence",
+            "summary": "Formulated structured actionable guidance backed by verified source citations.",
+            "details": "Structured executive summary, domain analysis, statutory framework, and strategic next steps."
+          }
+        ],
+        "statutory_checks": [
+          {
+            "rule": "Patents Act Section 3(p) — Traditional Knowledge Exclusion",
+            "status": "APPLICABLE_BARRIER",
+            "finding": "Raw biological substances or known traditional uses in TKDL cannot be patented. Claims must be restricted to novel extraction processes, synergistic combinations, or non-obvious therapeutic modifications.",
+            "mitigation": "Establish evidence of non-obvious technological intervention, technical step, or novel standardized dosage form."
+          },
+          {
+            "rule": "Biological Diversity Act Section 6(1) — Mandatory NBA Approval",
+            "status": "MANDATORY_PREREQUISITE",
+            "finding": "Commercial patent filing based on Indian biological resources strictly requires prior approval from the National Biodiversity Authority (Form III). Section 40 NTC commodity exemption does NOT apply to IPR applications.",
+            "mitigation": "Submit NBA Form III immediately after patent application and obtain formal clearance prior to patent grant."
+          }
+        ],
+        "action_plan": [
+          "Perform comprehensive prior-art search in TKDL and IPO / WIPO databases.",
+          "Verify whether biological resources are sourced within India to initiate NBA Form III filing.",
+          "Generate empirical synergism data if claiming polyherbal composition to overcome Section 3(e).",
+          "Disclose geographical origin under Section 10(4)(d) of the Patents Act, 1970."
+        ]
+      }
+    },
+    {
+      "name": "case_07",
+      "input": {
+        "query": "NBA ABS benefit sharing",
+        "citations": [],
+        "jurisdiction": "INDIA",
+        "route_intent": "hybrid"
+      },
+      "expected": {
+        "intent": "Biological Diversity & ABS Clearances",
+        "subgraph": {
+          "nodes": [
+            {
+              "id": "auth_nba",
+              "label": "National Biodiversity Authority (NBA)",
+              "category": "Regulatory Authority",
+              "keywords": [
+                "national biodiversity authority",
+                "nba",
+                "chennai"
+              ],
+              "description": "Apex statutory body responsible for approving IPR applications and Access and Benefit Sharing (ABS) agreements."
+            },
+            {
+              "id": "filing_abs_agreement",
+              "label": "Access & Benefit Sharing (ABS) Agreement",
+              "category": "Compliance Filing",
+              "keywords": [
+                "abs",
+                "benefit sharing",
+                "access and benefit sharing",
+                "turnover fee"
+              ],
+              "description": "Statutory royalty levy of 0.1% to 0.5% on gross ex-factory sales turnover paid to the NBA / BMC."
+            },
+            {
+              "id": "sec_6_bda",
+              "label": "Section 6(1) BDA — Mandatory NBA Approval",
+              "category": "Statutory Mandate",
+              "keywords": [
+                "section 6(1)",
+                "section 6",
+                "6(1)",
+                "nba approval",
+                "national biodiversity authority"
+              ],
+              "description": "Mandatory prior approval from NBA before applying for any intellectual property right inside or outside India based on Indian biological resources."
+            }
+          ],
+          "edges": [
+            {
+              "source": "sec_6_bda",
+              "target": "auth_nba",
+              "relation": "ADMINISTERED_BY",
+              "label": "NBA evaluates and approves"
+            },
+            {
+              "source": "auth_nba",
+              "target": "filing_abs_agreement",
+              "relation": "EXECUTES",
+              "label": "Levies 0.1%-0.5% gross sales ABS"
+            }
+          ],
+          "reasoning_paths": [
+            "Biological Resource ➔ Section 6(1) BDA ➔ NBA Form III Approval ➔ Indian Patent Office Grant"
+          ],
+          "total_nodes": 3,
+          "total_edges": 2
+        },
+        "reasoning_steps": [
+          {
+            "step": 1,
+            "title": "Intent & Jurisdiction Scope",
+            "summary": "Target jurisdiction: INDIA. Intent class: Biological Diversity & ABS Clearances.",
+            "details": "Assessed jurisdictional boundary and parsed patentability vs regulatory requirements."
+          },
+          {
+            "step": 2,
+            "title": "Knowledge Graph Traversal",
+            "summary": "Identified 3 relational nodes and 2 active statutory links.",
+            "details": "Active legal paths: Biological Resource ➔ Section 6(1) BDA ➔ NBA Form III Approval ➔ Indian Patent Office Grant"
+          },
+          {
+            "step": 3,
+            "title": "Dual-RAG Evidence Fusion",
+            "summary": "Cross-verified 0 authoritative citations across domain knowledge and legal evidence.",
+            "details": "Retrieved classical baseline formulation data alongside statutory provisions."
+          },
+          {
+            "step": 4,
+            "title": "Statutory Conflict & Compliance Evaluation",
+            "summary": "Evaluated 1 statutory criteria (Section 3(p), Section 3(e), and Section 6 NBA clearances).",
+            "details": "Verified timing prerequisites: NBA Form III clearance is required prior to patent grant."
+          },
+          {
+            "step": 5,
+            "title": "Synthesis with Grounded Evidence",
+            "summary": "Formulated structured actionable guidance backed by verified source citations.",
+            "details": "Structured executive summary, domain analysis, statutory framework, and strategic next steps."
+          }
+        ],
+        "statutory_checks": [
+          {
+            "rule": "Patents Act Section 3(p) — Traditional Knowledge Exclusion",
+            "status": "APPLICABLE_BARRIER",
+            "finding": "Raw biological substances or known traditional uses in TKDL cannot be patented. Claims must be restricted to novel extraction processes, synergistic combinations, or non-obvious therapeutic modifications.",
+            "mitigation": "Establish evidence of non-obvious technological intervention, technical step, or novel standardized dosage form."
+          }
+        ],
+        "action_plan": [
+          "Perform comprehensive prior-art search in TKDL and IPO / WIPO databases.",
+          "Verify whether biological resources are sourced within India to initiate NBA Form III filing.",
+          "Generate empirical synergism data if claiming polyherbal composition to overcome Section 3(e).",
+          "Disclose geographical origin under Section 10(4)(d) of the Patents Act, 1970."
+        ]
+      }
+    },
+    {
+      "name": "case_08",
+      "input": {
+        "query": "prior art NBA FSSAI",
+        "citations": [],
+        "jurisdiction": "INDIA",
+        "route_intent": "hybrid"
+      },
+      "expected": {
+        "intent": "Prior Art & Classical Knowledge Baseline",
+        "subgraph": {
+          "nodes": [
+            {
+              "id": "auth_nba",
+              "label": "National Biodiversity Authority (NBA)",
+              "category": "Regulatory Authority",
+              "keywords": [
+                "national biodiversity authority",
+                "nba",
+                "chennai"
+              ],
+              "description": "Apex statutory body responsible for approving IPR applications and Access and Benefit Sharing (ABS) agreements."
+            },
+            {
+              "id": "reg_fssai_aahara",
+              "label": "FSSAI Ayurveda Aahara Regulations, 2022",
+              "category": "Regulatory Framework",
+              "keywords": [
+                "ayurveda aahara",
+                "fssai",
+                "food supplement",
+                "dietary"
+              ],
+              "description": "Regulatory pathway for food prepared in accordance with classical Ayurvedic treatises; prohibits therapeutic claims."
+            },
+            {
+              "id": "source_tkdl",
+              "label": "Traditional Knowledge Digital Library (TKDL)",
+              "category": "Prior Art Repository",
+              "keywords": [
+                "tkdl",
+                "traditional knowledge digital library",
+                "prior art",
+                "classical text"
+              ],
+              "description": "Database containing over 450,000 digitized formulations translated into 5 international languages for patent examiner searches."
+            },
+            {
+              "id": "bio_neem",
+              "label": "Neem (Azadirachta indica / Nimba)",
+              "category": "Biological Resource",
+              "keywords": [
+                "neem",
+                "nimba",
+                "azadirachta indica"
+              ],
+              "description": "Medicinal tree famous in landmark EPO patent revocations; classic prior-art paradigm under TKDL."
+            },
+            {
+              "id": "bio_turmeric",
+              "label": "Turmeric (Curcuma longa / Haridra)",
+              "category": "Biological Resource",
+              "keywords": [
+                "turmeric",
+                "haldi",
+                "haridra",
+                "curcuma longa",
+                "curcumin"
+              ],
+              "description": "Rhizome extensively documented in Charaka and Sushruta Samhita for anti-inflammatory, wound healing, and metabolic actions."
+            },
+            {
+              "id": "filing_abs_agreement",
+              "label": "Access & Benefit Sharing (ABS) Agreement",
+              "category": "Compliance Filing",
+              "keywords": [
+                "abs",
+                "benefit sharing",
+                "access and benefit sharing",
+                "turnover fee"
+              ],
+              "description": "Statutory royalty levy of 0.1% to 0.5% on gross ex-factory sales turnover paid to the NBA / BMC."
+            },
+            {
+              "id": "sec_3p",
+              "label": "Section 3(p) — Traditional Knowledge Bar",
+              "category": "Statutory Bar",
+              "keywords": [
+                "section 3(p)",
+                "sec 3(p)",
+                "3(p)",
+                "traditional knowledge bar"
+              ],
+              "description": "Inventions that in effect are traditional knowledge or an aggregation or duplication of known properties are non-patentable."
+            },
+            {
+              "id": "sec_6_bda",
+              "label": "Section 6(1) BDA — Mandatory NBA Approval",
+              "category": "Statutory Mandate",
+              "keywords": [
+                "section 6(1)",
+                "section 6",
+                "6(1)",
+                "nba approval",
+                "national biodiversity authority"
+              ],
+              "description": "Mandatory prior approval from NBA before applying for any intellectual property right inside or outside India based on Indian biological resources."
+            }
+          ],
+          "edges": [
+            {
+              "source": "bio_turmeric",
+              "target": "source_tkdl",
+              "relation": "DOCUMENTED_IN",
+              "label": "Recorded in TKDL prior art"
+            },
+            {
+              "source": "bio_neem",
+              "target": "source_tkdl",
+              "relation": "DOCUMENTED_IN",
+              "label": "Landmark TKDL prior art"
+            },
+            {
+              "source": "source_tkdl",
+              "target": "sec_3p",
+              "relation": "TRIGGERS_BAR",
+              "label": "Establishes Section 3(p) prior art"
+            },
+            {
+              "source": "sec_6_bda",
+              "target": "auth_nba",
+              "relation": "ADMINISTERED_BY",
+              "label": "NBA evaluates and approves"
+            },
+            {
+              "source": "auth_nba",
+              "target": "filing_abs_agreement",
+              "relation": "EXECUTES",
+              "label": "Levies 0.1%-0.5% gross sales ABS"
+            }
+          ],
+          "reasoning_paths": [
+            "Biological Resource ➔ Section 6(1) BDA ➔ NBA Form III Approval ➔ Indian Patent Office Grant",
+            "Ayurvedic Prior Art ➔ Section 3(p) TK Bar ➔ Require Novel Extraction / Synergistic Form"
+          ],
+          "total_nodes": 8,
+          "total_edges": 5
+        },
+        "reasoning_steps": [
+          {
+            "step": 1,
+            "title": "Intent & Jurisdiction Scope",
+            "summary": "Target jurisdiction: INDIA. Intent class: Prior Art & Classical Knowledge Baseline.",
+            "details": "Assessed jurisdictional boundary and parsed patentability vs regulatory requirements."
+          },
+          {
+            "step": 2,
+            "title": "Knowledge Graph Traversal",
+            "summary": "Identified 8 relational nodes and 5 active statutory links.",
+            "details": "Active legal paths: Biological Resource ➔ Section 6(1) BDA ➔ NBA Form III Approval ➔ Indian Patent Office Grant; Ayurvedic Prior Art ➔ Section 3(p) TK Bar ➔ Require Novel Extraction / Synergistic Form"
+          },
+          {
+            "step": 3,
+            "title": "Dual-RAG Evidence Fusion",
+            "summary": "Cross-verified 0 authoritative citations across domain knowledge and legal evidence.",
+            "details": "Retrieved classical baseline formulation data alongside statutory provisions."
+          },
+          {
+            "step": 4,
+            "title": "Statutory Conflict & Compliance Evaluation",
+            "summary": "Evaluated 1 statutory criteria (Section 3(p), Section 3(e), and Section 6 NBA clearances).",
+            "details": "Verified timing prerequisites: NBA Form III clearance is required prior to patent grant."
+          },
+          {
+            "step": 5,
+            "title": "Synthesis with Grounded Evidence",
+            "summary": "Formulated structured actionable guidance backed by verified source citations.",
+            "details": "Structured executive summary, domain analysis, statutory framework, and strategic next steps."
+          }
+        ],
+        "statutory_checks": [
+          {
+            "rule": "Patents Act Section 3(p) — Traditional Knowledge Exclusion",
+            "status": "APPLICABLE_BARRIER",
+            "finding": "Raw biological substances or known traditional uses in TKDL cannot be patented. Claims must be restricted to novel extraction processes, synergistic combinations, or non-obvious therapeutic modifications.",
+            "mitigation": "Establish evidence of non-obvious technological intervention, technical step, or novel standardized dosage form."
+          }
+        ],
+        "action_plan": [
+          "Perform comprehensive prior-art search in TKDL and IPO / WIPO databases.",
+          "Verify whether biological resources are sourced within India to initiate NBA Form III filing.",
+          "Generate empirical synergism data if claiming polyherbal composition to overcome Section 3(e).",
+          "Disclose geographical origin under Section 10(4)(d) of the Patents Act, 1970."
+        ]
+      }
+    },
+    {
+      "name": "case_09",
+      "input": {
+        "query": "FSSAI Ayurveda Aahara food license",
+        "citations": [],
+        "jurisdiction": "INDIA",
+        "route_intent": "hybrid"
+      },
+      "expected": {
+        "intent": "Regulatory Licensing (AYUSH vs FSSAI)",
+        "subgraph": {
+          "nodes": [
+            {
+              "id": "reg_fssai_aahara",
+              "label": "FSSAI Ayurveda Aahara Regulations, 2022",
+              "category": "Regulatory Framework",
+              "keywords": [
+                "ayurveda aahara",
+                "fssai",
+                "food supplement",
+                "dietary"
+              ],
+              "description": "Regulatory pathway for food prepared in accordance with classical Ayurvedic treatises; prohibits therapeutic claims."
+            },
+            {
+              "id": "source_samhitas",
+              "label": "First Schedule Classical Treatises",
+              "category": "Prior Art Repository",
+              "keywords": [
+                "charaka",
+                "sushruta",
+                "vagbhata",
+                "ashtanga hridaya",
+                "first schedule",
+                "54 books"
+              ],
+              "description": "54 authoritative Ayurvedic treatises listed under the First Schedule of the Drugs & Cosmetics Act, 1940."
+            }
+          ],
+          "edges": [
+            {
+              "source": "source_samhitas",
+              "target": "reg_fssai_aahara",
+              "relation": "FOUNDATION_OF",
+              "label": "Recipe basis for Ayurveda Aahara"
+            }
+          ],
+          "reasoning_paths": [],
+          "total_nodes": 2,
+          "total_edges": 1
+        },
+        "reasoning_steps": [
+          {
+            "step": 1,
+            "title": "Intent & Jurisdiction Scope",
+            "summary": "Target jurisdiction: INDIA. Intent class: Regulatory Licensing (AYUSH vs FSSAI).",
+            "details": "Assessed jurisdictional boundary and parsed patentability vs regulatory requirements."
+          },
+          {
+            "step": 2,
+            "title": "Knowledge Graph Traversal",
+            "summary": "Identified 2 relational nodes and 1 active statutory links.",
+            "details": "Active legal paths: Direct statutory review"
+          },
+          {
+            "step": 3,
+            "title": "Dual-RAG Evidence Fusion",
+            "summary": "Cross-verified 0 authoritative citations across domain knowledge and legal evidence.",
+            "details": "Retrieved classical baseline formulation data alongside statutory provisions."
+          },
+          {
+            "step": 4,
+            "title": "Statutory Conflict & Compliance Evaluation",
+            "summary": "Evaluated 1 statutory criteria (Section 3(p), Section 3(e), and Section 6 NBA clearances).",
+            "details": "Verified timing prerequisites: NBA Form III clearance is required prior to patent grant."
+          },
+          {
+            "step": 5,
+            "title": "Synthesis with Grounded Evidence",
+            "summary": "Formulated structured actionable guidance backed by verified source citations.",
+            "details": "Structured executive summary, domain analysis, statutory framework, and strategic next steps."
+          }
+        ],
+        "statutory_checks": [
+          {
+            "rule": "Patents Act Section 3(p) — Traditional Knowledge Exclusion",
+            "status": "APPLICABLE_BARRIER",
+            "finding": "Raw biological substances or known traditional uses in TKDL cannot be patented. Claims must be restricted to novel extraction processes, synergistic combinations, or non-obvious therapeutic modifications.",
+            "mitigation": "Establish evidence of non-obvious technological intervention, technical step, or novel standardized dosage form."
+          }
+        ],
+        "action_plan": [
+          "Perform comprehensive prior-art search in TKDL and IPO / WIPO databases.",
+          "Verify whether biological resources are sourced within India to initiate NBA Form III filing.",
+          "Generate empirical synergism data if claiming polyherbal composition to overcome Section 3(e).",
+          "Disclose geographical origin under Section 10(4)(d) of the Patents Act, 1970."
+        ]
+      }
+    },
+    {
+      "name": "case_10",
+      "input": {
+        "query": "Can an Ayurvedic formulation get patent protection?",
+        "citations": [],
+        "jurisdiction": "INDIA",
+        "route_intent": "hybrid"
+      },
+      "expected": {
+        "intent": "Patentability & Regulatory Compliance",
+        "subgraph": {
+          "nodes": [
+            {
+              "id": "form_polyherbal",
+              "label": "Polyherbal / Classical Formulation",
+              "category": "Formulation",
+              "keywords": [
+                "formulation",
+                "polyherbal",
+                "admixture",
+                "triphala",
+                "chyawanprash",
+                "kwath",
+                "churna",
+                "taila"
+              ],
+              "description": "Ayurvedic combination formulation combining two or more herbal extracts or raw biological substances."
+            },
+            {
+              "id": "law_patents_act",
+              "label": "The Patents Act, 1970",
+              "category": "Statute",
+              "keywords": [
+                "patents act",
+                "patent",
+                "indian patent office",
+                "ipo"
+              ],
+              "description": "Primary Indian legislation governing patent grant, patentability bars, and disclosure mandates."
+            },
+            {
+              "id": "sec_10_4",
+              "label": "Section 10(4)(d) — Source & Origin Disclosure",
+              "category": "Statutory Mandate",
+              "keywords": [
+                "section 10(4)",
+                "10(4)",
+                "source of biological material",
+                "geographical origin"
+              ],
+              "description": "Mandatory specification of biological material source and geographical origin in patent specifications."
+            },
+            {
+              "id": "sec_3e",
+              "label": "Section 3(e) — Mere Admixture Bar",
+              "category": "Statutory Bar",
+              "keywords": [
+                "section 3(e)",
+                "sec 3(e)",
+                "3(e)",
+                "admixture",
+                "synergism",
+                "synergy"
+              ],
+              "description": "Mere admixtures resulting only in aggregation of properties of components are unpatentable; synergistic efficacy must be proved."
+            },
+            {
+              "id": "sec_3p",
+              "label": "Section 3(p) — Traditional Knowledge Bar",
+              "category": "Statutory Bar",
+              "keywords": [
+                "section 3(p)",
+                "sec 3(p)",
+                "3(p)",
+                "traditional knowledge bar"
+              ],
+              "description": "Inventions that in effect are traditional knowledge or an aggregation or duplication of known properties are non-patentable."
+            }
+          ],
+          "edges": [
+            {
+              "source": "form_polyherbal",
+              "target": "sec_3e",
+              "relation": "MUST_OVERCOME",
+              "label": "Must prove synergistic efficacy"
+            },
+            {
+              "source": "form_polyherbal",
+              "target": "sec_3p",
+              "relation": "MUST_OVERCOME",
+              "label": "Traditional knowledge bar risk"
+            },
+            {
+              "source": "law_patents_act",
+              "target": "sec_3p",
+              "relation": "CONTAINS_PROVISION",
+              "label": "Statutory exclusion"
+            },
+            {
+              "source": "law_patents_act",
+              "target": "sec_3e",
+              "relation": "CONTAINS_PROVISION",
+              "label": "Statutory exclusion"
+            },
+            {
+              "source": "law_patents_act",
+              "target": "sec_10_4",
+              "relation": "MANDATES",
+              "label": "Biological origin disclosure"
+            }
+          ],
+          "reasoning_paths": [
+            "Ayurvedic Prior Art ➔ Section 3(p) TK Bar ➔ Require Novel Extraction / Synergistic Form",
+            "Polyherbal Composition ➔ Section 3(e) Admixture Test ➔ Empirical Synergistic Data Proof"
+          ],
+          "total_nodes": 5,
+          "total_edges": 5
+        },
+        "reasoning_steps": [
+          {
+            "step": 1,
+            "title": "Intent & Jurisdiction Scope",
+            "summary": "Target jurisdiction: INDIA. Intent class: Patentability & Regulatory Compliance.",
+            "details": "Assessed jurisdictional boundary and parsed patentability vs regulatory requirements."
+          },
+          {
+            "step": 2,
+            "title": "Knowledge Graph Traversal",
+            "summary": "Identified 5 relational nodes and 5 active statutory links.",
+            "details": "Active legal paths: Ayurvedic Prior Art ➔ Section 3(p) TK Bar ➔ Require Novel Extraction / Synergistic Form; Polyherbal Composition ➔ Section 3(e) Admixture Test ➔ Empirical Synergistic Data Proof"
+          },
+          {
+            "step": 3,
+            "title": "Dual-RAG Evidence Fusion",
+            "summary": "Cross-verified 0 authoritative citations across domain knowledge and legal evidence.",
+            "details": "Retrieved classical baseline formulation data alongside statutory provisions."
+          },
+          {
+            "step": 4,
+            "title": "Statutory Conflict & Compliance Evaluation",
+            "summary": "Evaluated 3 statutory criteria (Section 3(p), Section 3(e), and Section 6 NBA clearances).",
+            "details": "Verified timing prerequisites: NBA Form III clearance is required prior to patent grant."
+          },
+          {
+            "step": 5,
+            "title": "Synthesis with Grounded Evidence",
+            "summary": "Formulated structured actionable guidance backed by verified source citations.",
+            "details": "Structured executive summary, domain analysis, statutory framework, and strategic next steps."
+          }
+        ],
+        "statutory_checks": [
+          {
+            "rule": "Patents Act Section 3(p) — Traditional Knowledge Exclusion",
+            "status": "APPLICABLE_BARRIER",
+            "finding": "Raw biological substances or known traditional uses in TKDL cannot be patented. Claims must be restricted to novel extraction processes, synergistic combinations, or non-obvious therapeutic modifications.",
+            "mitigation": "Establish evidence of non-obvious technological intervention, technical step, or novel standardized dosage form."
+          },
+          {
+            "rule": "Patents Act Section 3(e) — Mere Admixture Bar",
+            "status": "EVIDENTIARY_BURDEN",
+            "finding": "Combining multiple herbs is considered a mere aggregation of known properties unless unexpected synergism is quantitatively proven.",
+            "mitigation": "Submit comparative in-vitro / in-vivo combination index (CI < 1) or empirical pharmacological data demonstrating synergy."
+          },
+          {
+            "rule": "Biological Diversity Act Section 6(1) — Mandatory NBA Approval",
+            "status": "MANDATORY_PREREQUISITE",
+            "finding": "Commercial patent filing based on Indian biological resources strictly requires prior approval from the National Biodiversity Authority (Form III). Section 40 NTC commodity exemption does NOT apply to IPR applications.",
+            "mitigation": "Submit NBA Form III immediately after patent application and obtain formal clearance prior to patent grant."
+          }
+        ],
+        "action_plan": [
+          "Perform comprehensive prior-art search in TKDL and IPO / WIPO databases.",
+          "Verify whether biological resources are sourced within India to initiate NBA Form III filing.",
+          "Generate empirical synergism data if claiming polyherbal composition to overcome Section 3(e).",
+          "Disclose geographical origin under Section 10(4)(d) of the Patents Act, 1970."
+        ]
+      }
+    },
+    {
+      "name": "case_11",
+      "input": {
+        "query": "How can an Ayurvedic formulation be protected under Indian Patent Law?",
+        "citations": [],
+        "jurisdiction": "INDIA",
+        "route_intent": "hybrid"
+      },
+      "expected": {
+        "intent": "Patentability & Regulatory Compliance",
+        "subgraph": {
+          "nodes": [
+            {
+              "id": "form_polyherbal",
+              "label": "Polyherbal / Classical Formulation",
+              "category": "Formulation",
+              "keywords": [
+                "formulation",
+                "polyherbal",
+                "admixture",
+                "triphala",
+                "chyawanprash",
+                "kwath",
+                "churna",
+                "taila"
+              ],
+              "description": "Ayurvedic combination formulation combining two or more herbal extracts or raw biological substances."
+            },
+            {
+              "id": "law_patents_act",
+              "label": "The Patents Act, 1970",
+              "category": "Statute",
+              "keywords": [
+                "patents act",
+                "patent",
+                "indian patent office",
+                "ipo"
+              ],
+              "description": "Primary Indian legislation governing patent grant, patentability bars, and disclosure mandates."
+            },
+            {
+              "id": "sec_10_4",
+              "label": "Section 10(4)(d) — Source & Origin Disclosure",
+              "category": "Statutory Mandate",
+              "keywords": [
+                "section 10(4)",
+                "10(4)",
+                "source of biological material",
+                "geographical origin"
+              ],
+              "description": "Mandatory specification of biological material source and geographical origin in patent specifications."
+            },
+            {
+              "id": "sec_3e",
+              "label": "Section 3(e) — Mere Admixture Bar",
+              "category": "Statutory Bar",
+              "keywords": [
+                "section 3(e)",
+                "sec 3(e)",
+                "3(e)",
+                "admixture",
+                "synergism",
+                "synergy"
+              ],
+              "description": "Mere admixtures resulting only in aggregation of properties of components are unpatentable; synergistic efficacy must be proved."
+            },
+            {
+              "id": "sec_3p",
+              "label": "Section 3(p) — Traditional Knowledge Bar",
+              "category": "Statutory Bar",
+              "keywords": [
+                "section 3(p)",
+                "sec 3(p)",
+                "3(p)",
+                "traditional knowledge bar"
+              ],
+              "description": "Inventions that in effect are traditional knowledge or an aggregation or duplication of known properties are non-patentable."
+            }
+          ],
+          "edges": [
+            {
+              "source": "form_polyherbal",
+              "target": "sec_3e",
+              "relation": "MUST_OVERCOME",
+              "label": "Must prove synergistic efficacy"
+            },
+            {
+              "source": "form_polyherbal",
+              "target": "sec_3p",
+              "relation": "MUST_OVERCOME",
+              "label": "Traditional knowledge bar risk"
+            },
+            {
+              "source": "law_patents_act",
+              "target": "sec_3p",
+              "relation": "CONTAINS_PROVISION",
+              "label": "Statutory exclusion"
+            },
+            {
+              "source": "law_patents_act",
+              "target": "sec_3e",
+              "relation": "CONTAINS_PROVISION",
+              "label": "Statutory exclusion"
+            },
+            {
+              "source": "law_patents_act",
+              "target": "sec_10_4",
+              "relation": "MANDATES",
+              "label": "Biological origin disclosure"
+            }
+          ],
+          "reasoning_paths": [
+            "Ayurvedic Prior Art ➔ Section 3(p) TK Bar ➔ Require Novel Extraction / Synergistic Form",
+            "Polyherbal Composition ➔ Section 3(e) Admixture Test ➔ Empirical Synergistic Data Proof"
+          ],
+          "total_nodes": 5,
+          "total_edges": 5
+        },
+        "reasoning_steps": [
+          {
+            "step": 1,
+            "title": "Intent & Jurisdiction Scope",
+            "summary": "Target jurisdiction: INDIA. Intent class: Patentability & Regulatory Compliance.",
+            "details": "Assessed jurisdictional boundary and parsed patentability vs regulatory requirements."
+          },
+          {
+            "step": 2,
+            "title": "Knowledge Graph Traversal",
+            "summary": "Identified 5 relational nodes and 5 active statutory links.",
+            "details": "Active legal paths: Ayurvedic Prior Art ➔ Section 3(p) TK Bar ➔ Require Novel Extraction / Synergistic Form; Polyherbal Composition ➔ Section 3(e) Admixture Test ➔ Empirical Synergistic Data Proof"
+          },
+          {
+            "step": 3,
+            "title": "Dual-RAG Evidence Fusion",
+            "summary": "Cross-verified 0 authoritative citations across domain knowledge and legal evidence.",
+            "details": "Retrieved classical baseline formulation data alongside statutory provisions."
+          },
+          {
+            "step": 4,
+            "title": "Statutory Conflict & Compliance Evaluation",
+            "summary": "Evaluated 3 statutory criteria (Section 3(p), Section 3(e), and Section 6 NBA clearances).",
+            "details": "Verified timing prerequisites: NBA Form III clearance is required prior to patent grant."
+          },
+          {
+            "step": 5,
+            "title": "Synthesis with Grounded Evidence",
+            "summary": "Formulated structured actionable guidance backed by verified source citations.",
+            "details": "Structured executive summary, domain analysis, statutory framework, and strategic next steps."
+          }
+        ],
+        "statutory_checks": [
+          {
+            "rule": "Patents Act Section 3(p) — Traditional Knowledge Exclusion",
+            "status": "APPLICABLE_BARRIER",
+            "finding": "Raw biological substances or known traditional uses in TKDL cannot be patented. Claims must be restricted to novel extraction processes, synergistic combinations, or non-obvious therapeutic modifications.",
+            "mitigation": "Establish evidence of non-obvious technological intervention, technical step, or novel standardized dosage form."
+          },
+          {
+            "rule": "Patents Act Section 3(e) — Mere Admixture Bar",
+            "status": "EVIDENTIARY_BURDEN",
+            "finding": "Combining multiple herbs is considered a mere aggregation of known properties unless unexpected synergism is quantitatively proven.",
+            "mitigation": "Submit comparative in-vitro / in-vivo combination index (CI < 1) or empirical pharmacological data demonstrating synergy."
+          },
+          {
+            "rule": "Biological Diversity Act Section 6(1) — Mandatory NBA Approval",
+            "status": "MANDATORY_PREREQUISITE",
+            "finding": "Commercial patent filing based on Indian biological resources strictly requires prior approval from the National Biodiversity Authority (Form III). Section 40 NTC commodity exemption does NOT apply to IPR applications.",
+            "mitigation": "Submit NBA Form III immediately after patent application and obtain formal clearance prior to patent grant."
+          }
+        ],
+        "action_plan": [
+          "Perform comprehensive prior-art search in TKDL and IPO / WIPO databases.",
+          "Verify whether biological resources are sourced within India to initiate NBA Form III filing.",
+          "Generate empirical synergism data if claiming polyherbal composition to overcome Section 3(e).",
+          "Disclose geographical origin under Section 10(4)(d) of the Patents Act, 1970."
+        ]
+      }
+    },
+    {
+      "name": "case_12",
+      "input": {
+        "query": "How can an Ayurvedic product be protected using IP?",
+        "citations": [],
+        "jurisdiction": "INDIA",
+        "route_intent": "hybrid"
+      },
+      "expected": {
+        "intent": "Patentability & Regulatory Compliance",
+        "subgraph": {
+          "nodes": [],
+          "edges": [],
+          "reasoning_paths": [],
+          "total_nodes": 0,
+          "total_edges": 0
+        },
+        "reasoning_steps": [
+          {
+            "step": 1,
+            "title": "Intent & Jurisdiction Scope",
+            "summary": "Target jurisdiction: INDIA. Intent class: Patentability & Regulatory Compliance.",
+            "details": "Assessed jurisdictional boundary and parsed patentability vs regulatory requirements."
+          },
+          {
+            "step": 2,
+            "title": "Knowledge Graph Traversal",
+            "summary": "Identified 0 relational nodes and 0 active statutory links.",
+            "details": "Active legal paths: Direct statutory review"
+          },
+          {
+            "step": 3,
+            "title": "Dual-RAG Evidence Fusion",
+            "summary": "Cross-verified 0 authoritative citations across domain knowledge and legal evidence.",
+            "details": "Retrieved classical baseline formulation data alongside statutory provisions."
+          },
+          {
+            "step": 4,
+            "title": "Statutory Conflict & Compliance Evaluation",
+            "summary": "Evaluated 1 statutory criteria (Section 3(p), Section 3(e), and Section 6 NBA clearances).",
+            "details": "Verified timing prerequisites: NBA Form III clearance is required prior to patent grant."
+          },
+          {
+            "step": 5,
+            "title": "Synthesis with Grounded Evidence",
+            "summary": "Formulated structured actionable guidance backed by verified source citations.",
+            "details": "Structured executive summary, domain analysis, statutory framework, and strategic next steps."
+          }
+        ],
+        "statutory_checks": [
+          {
+            "rule": "Patents Act Section 3(p) — Traditional Knowledge Exclusion",
+            "status": "APPLICABLE_BARRIER",
+            "finding": "Raw biological substances or known traditional uses in TKDL cannot be patented. Claims must be restricted to novel extraction processes, synergistic combinations, or non-obvious therapeutic modifications.",
+            "mitigation": "Establish evidence of non-obvious technological intervention, technical step, or novel standardized dosage form."
+          }
+        ],
+        "action_plan": [
+          "Perform comprehensive prior-art search in TKDL and IPO / WIPO databases.",
+          "Verify whether biological resources are sourced within India to initiate NBA Form III filing.",
+          "Generate empirical synergism data if claiming polyherbal composition to overcome Section 3(e).",
+          "Disclose geographical origin under Section 10(4)(d) of the Patents Act, 1970."
+        ]
+      }
+    },
+    {
+      "name": "case_13",
+      "input": {
+        "query": "What is a classical Ayurvedic formulation?",
+        "citations": [],
+        "jurisdiction": "INDIA",
+        "route_intent": "hybrid"
+      },
+      "expected": {
+        "intent": "Patentability & Regulatory Compliance",
+        "subgraph": {
+          "nodes": [
+            {
+              "id": "form_polyherbal",
+              "label": "Polyherbal / Classical Formulation",
+              "category": "Formulation",
+              "keywords": [
+                "formulation",
+                "polyherbal",
+                "admixture",
+                "triphala",
+                "chyawanprash",
+                "kwath",
+                "churna",
+                "taila"
+              ],
+              "description": "Ayurvedic combination formulation combining two or more herbal extracts or raw biological substances."
+            },
+            {
+              "id": "sec_3e",
+              "label": "Section 3(e) — Mere Admixture Bar",
+              "category": "Statutory Bar",
+              "keywords": [
+                "section 3(e)",
+                "sec 3(e)",
+                "3(e)",
+                "admixture",
+                "synergism",
+                "synergy"
+              ],
+              "description": "Mere admixtures resulting only in aggregation of properties of components are unpatentable; synergistic efficacy must be proved."
+            },
+            {
+              "id": "sec_3p",
+              "label": "Section 3(p) — Traditional Knowledge Bar",
+              "category": "Statutory Bar",
+              "keywords": [
+                "section 3(p)",
+                "sec 3(p)",
+                "3(p)",
+                "traditional knowledge bar"
+              ],
+              "description": "Inventions that in effect are traditional knowledge or an aggregation or duplication of known properties are non-patentable."
+            }
+          ],
+          "edges": [
+            {
+              "source": "form_polyherbal",
+              "target": "sec_3e",
+              "relation": "MUST_OVERCOME",
+              "label": "Must prove synergistic efficacy"
+            },
+            {
+              "source": "form_polyherbal",
+              "target": "sec_3p",
+              "relation": "MUST_OVERCOME",
+              "label": "Traditional knowledge bar risk"
+            }
+          ],
+          "reasoning_paths": [
+            "Ayurvedic Prior Art ➔ Section 3(p) TK Bar ➔ Require Novel Extraction / Synergistic Form",
+            "Polyherbal Composition ➔ Section 3(e) Admixture Test ➔ Empirical Synergistic Data Proof"
+          ],
+          "total_nodes": 3,
+          "total_edges": 2
+        },
+        "reasoning_steps": [
+          {
+            "step": 1,
+            "title": "Intent & Jurisdiction Scope",
+            "summary": "Target jurisdiction: INDIA. Intent class: Patentability & Regulatory Compliance.",
+            "details": "Assessed jurisdictional boundary and parsed patentability vs regulatory requirements."
+          },
+          {
+            "step": 2,
+            "title": "Knowledge Graph Traversal",
+            "summary": "Identified 3 relational nodes and 2 active statutory links.",
+            "details": "Active legal paths: Ayurvedic Prior Art ➔ Section 3(p) TK Bar ➔ Require Novel Extraction / Synergistic Form; Polyherbal Composition ➔ Section 3(e) Admixture Test ➔ Empirical Synergistic Data Proof"
+          },
+          {
+            "step": 3,
+            "title": "Dual-RAG Evidence Fusion",
+            "summary": "Cross-verified 0 authoritative citations across domain knowledge and legal evidence.",
+            "details": "Retrieved classical baseline formulation data alongside statutory provisions."
+          },
+          {
+            "step": 4,
+            "title": "Statutory Conflict & Compliance Evaluation",
+            "summary": "Evaluated 2 statutory criteria (Section 3(p), Section 3(e), and Section 6 NBA clearances).",
+            "details": "Verified timing prerequisites: NBA Form III clearance is required prior to patent grant."
+          },
+          {
+            "step": 5,
+            "title": "Synthesis with Grounded Evidence",
+            "summary": "Formulated structured actionable guidance backed by verified source citations.",
+            "details": "Structured executive summary, domain analysis, statutory framework, and strategic next steps."
+          }
+        ],
+        "statutory_checks": [
+          {
+            "rule": "Patents Act Section 3(p) — Traditional Knowledge Exclusion",
+            "status": "APPLICABLE_BARRIER",
+            "finding": "Raw biological substances or known traditional uses in TKDL cannot be patented. Claims must be restricted to novel extraction processes, synergistic combinations, or non-obvious therapeutic modifications.",
+            "mitigation": "Establish evidence of non-obvious technological intervention, technical step, or novel standardized dosage form."
+          },
+          {
+            "rule": "Patents Act Section 3(e) — Mere Admixture Bar",
+            "status": "EVIDENTIARY_BURDEN",
+            "finding": "Combining multiple herbs is considered a mere aggregation of known properties unless unexpected synergism is quantitatively proven.",
+            "mitigation": "Submit comparative in-vitro / in-vivo combination index (CI < 1) or empirical pharmacological data demonstrating synergy."
+          }
+        ],
+        "action_plan": [
+          "Perform comprehensive prior-art search in TKDL and IPO / WIPO databases.",
+          "Verify whether biological resources are sourced within India to initiate NBA Form III filing.",
+          "Generate empirical synergism data if claiming polyherbal composition to overcome Section 3(e).",
+          "Disclose geographical origin under Section 10(4)(d) of the Patents Act, 1970."
+        ]
+      }
+    },
+    {
+      "name": "case_14",
+      "input": {
+        "query": "What is the penalty and criminal liability under Section 55?",
+        "citations": [],
+        "jurisdiction": "INDIA",
+        "route_intent": "hybrid"
+      },
+      "expected": {
+        "intent": "Patentability & Regulatory Compliance",
+        "subgraph": {
+          "nodes": [],
+          "edges": [],
+          "reasoning_paths": [],
+          "total_nodes": 0,
+          "total_edges": 0
+        },
+        "reasoning_steps": [
+          {
+            "step": 1,
+            "title": "Intent & Jurisdiction Scope",
+            "summary": "Target jurisdiction: INDIA. Intent class: Patentability & Regulatory Compliance.",
+            "details": "Assessed jurisdictional boundary and parsed patentability vs regulatory requirements."
+          },
+          {
+            "step": 2,
+            "title": "Knowledge Graph Traversal",
+            "summary": "Identified 0 relational nodes and 0 active statutory links.",
+            "details": "Active legal paths: Direct statutory review"
+          },
+          {
+            "step": 3,
+            "title": "Dual-RAG Evidence Fusion",
+            "summary": "Cross-verified 0 authoritative citations across domain knowledge and legal evidence.",
+            "details": "Retrieved classical baseline formulation data alongside statutory provisions."
+          },
+          {
+            "step": 4,
+            "title": "Statutory Conflict & Compliance Evaluation",
+            "summary": "Evaluated 1 statutory criteria (Section 3(p), Section 3(e), and Section 6 NBA clearances).",
+            "details": "Verified timing prerequisites: NBA Form III clearance is required prior to patent grant."
+          },
+          {
+            "step": 5,
+            "title": "Synthesis with Grounded Evidence",
+            "summary": "Formulated structured actionable guidance backed by verified source citations.",
+            "details": "Structured executive summary, domain analysis, statutory framework, and strategic next steps."
+          }
+        ],
+        "statutory_checks": [
+          {
+            "rule": "Patents Act Section 3(p) — Traditional Knowledge Exclusion",
+            "status": "APPLICABLE_BARRIER",
+            "finding": "Raw biological substances or known traditional uses in TKDL cannot be patented. Claims must be restricted to novel extraction processes, synergistic combinations, or non-obvious therapeutic modifications.",
+            "mitigation": "Establish evidence of non-obvious technological intervention, technical step, or novel standardized dosage form."
+          }
+        ],
+        "action_plan": [
+          "Perform comprehensive prior-art search in TKDL and IPO / WIPO databases.",
+          "Verify whether biological resources are sourced within India to initiate NBA Form III filing.",
+          "Generate empirical synergism data if claiming polyherbal composition to overcome Section 3(e).",
+          "Disclose geographical origin under Section 10(4)(d) of the Patents Act, 1970."
+        ]
+      }
+    },
+    {
+      "name": "case_15",
+      "input": {
+        "query": "TURMERIC POLYHERBAL PATENT",
+        "citations": [],
+        "jurisdiction": "INDIA",
+        "route_intent": "hybrid"
+      },
+      "expected": {
+        "intent": "Patentability & Regulatory Compliance",
+        "subgraph": {
+          "nodes": [
+            {
+              "id": "bio_turmeric",
+              "label": "Turmeric (Curcuma longa / Haridra)",
+              "category": "Biological Resource",
+              "keywords": [
+                "turmeric",
+                "haldi",
+                "haridra",
+                "curcuma longa",
+                "curcumin"
+              ],
+              "description": "Rhizome extensively documented in Charaka and Sushruta Samhita for anti-inflammatory, wound healing, and metabolic actions."
+            },
+            {
+              "id": "form_polyherbal",
+              "label": "Polyherbal / Classical Formulation",
+              "category": "Formulation",
+              "keywords": [
+                "formulation",
+                "polyherbal",
+                "admixture",
+                "triphala",
+                "chyawanprash",
+                "kwath",
+                "churna",
+                "taila"
+              ],
+              "description": "Ayurvedic combination formulation combining two or more herbal extracts or raw biological substances."
+            },
+            {
+              "id": "law_patents_act",
+              "label": "The Patents Act, 1970",
+              "category": "Statute",
+              "keywords": [
+                "patents act",
+                "patent",
+                "indian patent office",
+                "ipo"
+              ],
+              "description": "Primary Indian legislation governing patent grant, patentability bars, and disclosure mandates."
+            },
+            {
+              "id": "law_bda",
+              "label": "Biological Diversity Act, 2002",
+              "category": "Statute",
+              "keywords": [
+                "biological diversity act",
+                "bda",
+                "biodiversity act",
+                "biological resource"
+              ],
+              "description": "Governs conservation, sustainable use, and fair equitable benefit sharing from Indian biological resources."
+            },
+            {
+              "id": "sec_10_4",
+              "label": "Section 10(4)(d) — Source & Origin Disclosure",
+              "category": "Statutory Mandate",
+              "keywords": [
+                "section 10(4)",
+                "10(4)",
+                "source of biological material",
+                "geographical origin"
+              ],
+              "description": "Mandatory specification of biological material source and geographical origin in patent specifications."
+            },
+            {
+              "id": "sec_3e",
+              "label": "Section 3(e) — Mere Admixture Bar",
+              "category": "Statutory Bar",
+              "keywords": [
+                "section 3(e)",
+                "sec 3(e)",
+                "3(e)",
+                "admixture",
+                "synergism",
+                "synergy"
+              ],
+              "description": "Mere admixtures resulting only in aggregation of properties of components are unpatentable; synergistic efficacy must be proved."
+            },
+            {
+              "id": "sec_3p",
+              "label": "Section 3(p) — Traditional Knowledge Bar",
+              "category": "Statutory Bar",
+              "keywords": [
+                "section 3(p)",
+                "sec 3(p)",
+                "3(p)",
+                "traditional knowledge bar"
+              ],
+              "description": "Inventions that in effect are traditional knowledge or an aggregation or duplication of known properties are non-patentable."
+            },
+            {
+              "id": "source_tkdl",
+              "label": "Traditional Knowledge Digital Library (TKDL)",
+              "category": "Prior Art Repository",
+              "keywords": [
+                "tkdl",
+                "traditional knowledge digital library",
+                "prior art",
+                "classical text"
+              ],
+              "description": "Database containing over 450,000 digitized formulations translated into 5 international languages for patent examiner searches."
+            }
+          ],
+          "edges": [
+            {
+              "source": "bio_turmeric",
+              "target": "source_tkdl",
+              "relation": "DOCUMENTED_IN",
+              "label": "Recorded in TKDL prior art"
+            },
+            {
+              "source": "bio_turmeric",
+              "target": "law_bda",
+              "relation": "REGULATED_BY",
+              "label": "Governed as biological resource"
+            },
+            {
+              "source": "form_polyherbal",
+              "target": "sec_3e",
+              "relation": "MUST_OVERCOME",
+              "label": "Must prove synergistic efficacy"
+            },
+            {
+              "source": "form_polyherbal",
+              "target": "sec_3p",
+              "relation": "MUST_OVERCOME",
+              "label": "Traditional knowledge bar risk"
+            },
+            {
+              "source": "law_patents_act",
+              "target": "sec_3p",
+              "relation": "CONTAINS_PROVISION",
+              "label": "Statutory exclusion"
+            },
+            {
+              "source": "law_patents_act",
+              "target": "sec_3e",
+              "relation": "CONTAINS_PROVISION",
+              "label": "Statutory exclusion"
+            },
+            {
+              "source": "law_patents_act",
+              "target": "sec_10_4",
+              "relation": "MANDATES",
+              "label": "Biological origin disclosure"
+            }
+          ],
+          "reasoning_paths": [
+            "Ayurvedic Prior Art ➔ Section 3(p) TK Bar ➔ Require Novel Extraction / Synergistic Form",
+            "Polyherbal Composition ➔ Section 3(e) Admixture Test ➔ Empirical Synergistic Data Proof"
+          ],
+          "total_nodes": 8,
+          "total_edges": 7
+        },
+        "reasoning_steps": [
+          {
+            "step": 1,
+            "title": "Intent & Jurisdiction Scope",
+            "summary": "Target jurisdiction: INDIA. Intent class: Patentability & Regulatory Compliance.",
+            "details": "Assessed jurisdictional boundary and parsed patentability vs regulatory requirements."
+          },
+          {
+            "step": 2,
+            "title": "Knowledge Graph Traversal",
+            "summary": "Identified 8 relational nodes and 7 active statutory links.",
+            "details": "Active legal paths: Ayurvedic Prior Art ➔ Section 3(p) TK Bar ➔ Require Novel Extraction / Synergistic Form; Polyherbal Composition ➔ Section 3(e) Admixture Test ➔ Empirical Synergistic Data Proof"
+          },
+          {
+            "step": 3,
+            "title": "Dual-RAG Evidence Fusion",
+            "summary": "Cross-verified 0 authoritative citations across domain knowledge and legal evidence.",
+            "details": "Retrieved classical baseline formulation data alongside statutory provisions."
+          },
+          {
+            "step": 4,
+            "title": "Statutory Conflict & Compliance Evaluation",
+            "summary": "Evaluated 3 statutory criteria (Section 3(p), Section 3(e), and Section 6 NBA clearances).",
+            "details": "Verified timing prerequisites: NBA Form III clearance is required prior to patent grant."
+          },
+          {
+            "step": 5,
+            "title": "Synthesis with Grounded Evidence",
+            "summary": "Formulated structured actionable guidance backed by verified source citations.",
+            "details": "Structured executive summary, domain analysis, statutory framework, and strategic next steps."
+          }
+        ],
+        "statutory_checks": [
+          {
+            "rule": "Patents Act Section 3(p) — Traditional Knowledge Exclusion",
+            "status": "APPLICABLE_BARRIER",
+            "finding": "Raw biological substances or known traditional uses in TKDL cannot be patented. Claims must be restricted to novel extraction processes, synergistic combinations, or non-obvious therapeutic modifications.",
+            "mitigation": "Establish evidence of non-obvious technological intervention, technical step, or novel standardized dosage form."
+          },
+          {
+            "rule": "Patents Act Section 3(e) — Mere Admixture Bar",
+            "status": "EVIDENTIARY_BURDEN",
+            "finding": "Combining multiple herbs is considered a mere aggregation of known properties unless unexpected synergism is quantitatively proven.",
+            "mitigation": "Submit comparative in-vitro / in-vivo combination index (CI < 1) or empirical pharmacological data demonstrating synergy."
+          },
+          {
+            "rule": "Biological Diversity Act Section 6(1) — Mandatory NBA Approval",
+            "status": "MANDATORY_PREREQUISITE",
+            "finding": "Commercial patent filing based on Indian biological resources strictly requires prior approval from the National Biodiversity Authority (Form III). Section 40 NTC commodity exemption does NOT apply to IPR applications.",
+            "mitigation": "Submit NBA Form III immediately after patent application and obtain formal clearance prior to patent grant."
+          }
+        ],
+        "action_plan": [
+          "Perform comprehensive prior-art search in TKDL and IPO / WIPO databases.",
+          "Verify whether biological resources are sourced within India to initiate NBA Form III filing.",
+          "Generate empirical synergism data if claiming polyherbal composition to overcome Section 3(e).",
+          "Disclose geographical origin under Section 10(4)(d) of the Patents Act, 1970."
+        ]
+      }
+    },
+    {
+      "name": "case_16",
+      "input": {
+        "query": "पूर्व कला क्या है?",
+        "citations": [],
+        "jurisdiction": "INDIA",
+        "route_intent": "hybrid"
+      },
+      "expected": {
+        "intent": "Patentability & Regulatory Compliance",
+        "subgraph": {
+          "nodes": [],
+          "edges": [],
+          "reasoning_paths": [],
+          "total_nodes": 0,
+          "total_edges": 0
+        },
+        "reasoning_steps": [
+          {
+            "step": 1,
+            "title": "Intent & Jurisdiction Scope",
+            "summary": "Target jurisdiction: INDIA. Intent class: Patentability & Regulatory Compliance.",
+            "details": "Assessed jurisdictional boundary and parsed patentability vs regulatory requirements."
+          },
+          {
+            "step": 2,
+            "title": "Knowledge Graph Traversal",
+            "summary": "Identified 0 relational nodes and 0 active statutory links.",
+            "details": "Active legal paths: Direct statutory review"
+          },
+          {
+            "step": 3,
+            "title": "Dual-RAG Evidence Fusion",
+            "summary": "Cross-verified 0 authoritative citations across domain knowledge and legal evidence.",
+            "details": "Retrieved classical baseline formulation data alongside statutory provisions."
+          },
+          {
+            "step": 4,
+            "title": "Statutory Conflict & Compliance Evaluation",
+            "summary": "Evaluated 1 statutory criteria (Section 3(p), Section 3(e), and Section 6 NBA clearances).",
+            "details": "Verified timing prerequisites: NBA Form III clearance is required prior to patent grant."
+          },
+          {
+            "step": 5,
+            "title": "Synthesis with Grounded Evidence",
+            "summary": "Formulated structured actionable guidance backed by verified source citations.",
+            "details": "Structured executive summary, domain analysis, statutory framework, and strategic next steps."
+          }
+        ],
+        "statutory_checks": [
+          {
+            "rule": "Patents Act Section 3(p) — Traditional Knowledge Exclusion",
+            "status": "APPLICABLE_BARRIER",
+            "finding": "Raw biological substances or known traditional uses in TKDL cannot be patented. Claims must be restricted to novel extraction processes, synergistic combinations, or non-obvious therapeutic modifications.",
+            "mitigation": "Establish evidence of non-obvious technological intervention, technical step, or novel standardized dosage form."
+          }
+        ],
+        "action_plan": [
+          "Perform comprehensive prior-art search in TKDL and IPO / WIPO databases.",
+          "Verify whether biological resources are sourced within India to initiate NBA Form III filing.",
+          "Generate empirical synergism data if claiming polyherbal composition to overcome Section 3(e).",
+          "Disclose geographical origin under Section 10(4)(d) of the Patents Act, 1970."
+        ]
+      }
+    },
+    {
+      "name": "case_17",
+      "input": {
+        "query": "patent formulation",
+        "citations": [],
+        "jurisdiction": "INTERNATIONAL",
+        "route_intent": "hybrid"
+      },
+      "expected": {
+        "intent": "International evidence review",
+        "subgraph": {
+          "nodes": [],
+          "edges": [],
+          "reasoning_paths": [],
+          "total_nodes": 0,
+          "total_edges": 0
+        },
+        "reasoning_steps": [
+          {
+            "step": 1,
+            "title": "Jurisdiction scope",
+            "summary": "Selected jurisdiction: INTERNATIONAL."
+          },
+          {
+            "step": 2,
+            "title": "Retrieved evidence",
+            "summary": "Retrieved 0 citations for review."
+          }
+        ],
+        "statutory_checks": [],
+        "action_plan": []
+      }
+    },
+    {
+      "name": "case_18",
+      "input": {
+        "query": "What is TRIPS?",
+        "citations": [],
+        "jurisdiction": "INTERNATIONAL",
+        "route_intent": "hybrid"
+      },
+      "expected": {
+        "intent": "International evidence review",
+        "subgraph": {
+          "nodes": [],
+          "edges": [],
+          "reasoning_paths": [],
+          "total_nodes": 0,
+          "total_edges": 0
+        },
+        "reasoning_steps": [
+          {
+            "step": 1,
+            "title": "Jurisdiction scope",
+            "summary": "Selected jurisdiction: INTERNATIONAL."
+          },
+          {
+            "step": 2,
+            "title": "Retrieved evidence",
+            "summary": "Retrieved 0 citations for review."
+          }
+        ],
+        "statutory_checks": [],
+        "action_plan": []
+      }
+    },
+    {
+      "name": "case_19",
+      "input": {
+        "query": "What is benefit sharing under the Nagoya Protocol?",
+        "citations": [],
+        "jurisdiction": "INTERNATIONAL",
+        "route_intent": "hybrid"
+      },
+      "expected": {
+        "intent": "International evidence review",
+        "subgraph": {
+          "nodes": [],
+          "edges": [],
+          "reasoning_paths": [],
+          "total_nodes": 0,
+          "total_edges": 0
+        },
+        "reasoning_steps": [
+          {
+            "step": 1,
+            "title": "Jurisdiction scope",
+            "summary": "Selected jurisdiction: INTERNATIONAL."
+          },
+          {
+            "step": 2,
+            "title": "Retrieved evidence",
+            "summary": "Retrieved 0 citations for review."
+          }
+        ],
+        "statutory_checks": [],
+        "action_plan": []
+      }
+    },
+    {
+      "name": "case_20",
+      "input": {
+        "query": "How is traditional knowledge protected?",
+        "citations": [],
+        "jurisdiction": "INTERNATIONAL",
+        "route_intent": "hybrid"
+      },
+      "expected": {
+        "intent": "International evidence review",
+        "subgraph": {
+          "nodes": [],
+          "edges": [],
+          "reasoning_paths": [],
+          "total_nodes": 0,
+          "total_edges": 0
+        },
+        "reasoning_steps": [
+          {
+            "step": 1,
+            "title": "Jurisdiction scope",
+            "summary": "Selected jurisdiction: INTERNATIONAL."
+          },
+          {
+            "step": 2,
+            "title": "Retrieved evidence",
+            "summary": "Retrieved 0 citations for review."
+          }
+        ],
+        "statutory_checks": [],
+        "action_plan": []
+      }
+    },
+    {
+      "name": "with_citation_21",
+      "input": {
+        "query": "hello",
+        "citations": [
+          {
+            "document_id": "FIXTURE",
+            "chunk_id": "FIXTURE-TK",
+            "title": "Traditional knowledge",
+            "source_name": "Synthetic fixture",
+            "source_url": null,
+            "text": "turmeric",
+            "domain": null,
+            "score": null,
+            "authority_tier": null,
+            "rag_source": "RAG1"
+          }
+        ],
+        "jurisdiction": "INDIA",
+        "route_intent": "conceptual_domain_knowledge"
+      },
+      "expected": {
+        "intent": "Patentability & Regulatory Compliance",
+        "subgraph": {
+          "nodes": [
+            {
+              "id": "bio_turmeric",
+              "label": "Turmeric (Curcuma longa / Haridra)",
+              "category": "Biological Resource",
+              "keywords": [
+                "turmeric",
+                "haldi",
+                "haridra",
+                "curcuma longa",
+                "curcumin"
+              ],
+              "description": "Rhizome extensively documented in Charaka and Sushruta Samhita for anti-inflammatory, wound healing, and metabolic actions."
+            },
+            {
+              "id": "law_bda",
+              "label": "Biological Diversity Act, 2002",
+              "category": "Statute",
+              "keywords": [
+                "biological diversity act",
+                "bda",
+                "biodiversity act",
+                "biological resource"
+              ],
+              "description": "Governs conservation, sustainable use, and fair equitable benefit sharing from Indian biological resources."
+            },
+            {
+              "id": "source_tkdl",
+              "label": "Traditional Knowledge Digital Library (TKDL)",
+              "category": "Prior Art Repository",
+              "keywords": [
+                "tkdl",
+                "traditional knowledge digital library",
+                "prior art",
+                "classical text"
+              ],
+              "description": "Database containing over 450,000 digitized formulations translated into 5 international languages for patent examiner searches."
+            }
+          ],
+          "edges": [
+            {
+              "source": "bio_turmeric",
+              "target": "source_tkdl",
+              "relation": "DOCUMENTED_IN",
+              "label": "Recorded in TKDL prior art"
+            },
+            {
+              "source": "bio_turmeric",
+              "target": "law_bda",
+              "relation": "REGULATED_BY",
+              "label": "Governed as biological resource"
+            }
+          ],
+          "reasoning_paths": [
+            "Ayurvedic Prior Art ➔ Section 3(p) TK Bar ➔ Require Novel Extraction / Synergistic Form"
+          ],
+          "total_nodes": 3,
+          "total_edges": 2
+        },
+        "reasoning_steps": [
+          {
+            "step": 1,
+            "title": "Intent & Jurisdiction Scope",
+            "summary": "Target jurisdiction: INDIA. Intent class: Patentability & Regulatory Compliance.",
+            "details": "Assessed jurisdictional boundary and parsed patentability vs regulatory requirements."
+          },
+          {
+            "step": 2,
+            "title": "Knowledge Graph Traversal",
+            "summary": "Identified 3 relational nodes and 2 active statutory links.",
+            "details": "Active legal paths: Ayurvedic Prior Art ➔ Section 3(p) TK Bar ➔ Require Novel Extraction / Synergistic Form"
+          },
+          {
+            "step": 3,
+            "title": "Dual-RAG Evidence Fusion",
+            "summary": "Cross-verified 1 authoritative citations across domain knowledge and legal evidence.",
+            "details": "Retrieved classical baseline formulation data alongside statutory provisions."
+          },
+          {
+            "step": 4,
+            "title": "Statutory Conflict & Compliance Evaluation",
+            "summary": "Evaluated 1 statutory criteria (Section 3(p), Section 3(e), and Section 6 NBA clearances).",
+            "details": "Verified timing prerequisites: NBA Form III clearance is required prior to patent grant."
+          },
+          {
+            "step": 5,
+            "title": "Synthesis with Grounded Evidence",
+            "summary": "Formulated structured actionable guidance backed by verified source citations.",
+            "details": "Structured executive summary, domain analysis, statutory framework, and strategic next steps."
+          }
+        ],
+        "statutory_checks": [
+          {
+            "rule": "Patents Act Section 3(p) — Traditional Knowledge Exclusion",
+            "status": "APPLICABLE_BARRIER",
+            "finding": "Raw biological substances or known traditional uses in TKDL cannot be patented. Claims must be restricted to novel extraction processes, synergistic combinations, or non-obvious therapeutic modifications.",
+            "mitigation": "Establish evidence of non-obvious technological intervention, technical step, or novel standardized dosage form."
+          }
+        ],
+        "action_plan": [
+          "Perform comprehensive prior-art search in TKDL and IPO / WIPO databases.",
+          "Verify whether biological resources are sourced within India to initiate NBA Form III filing.",
+          "Generate empirical synergism data if claiming polyherbal composition to overcome Section 3(e).",
+          "Disclose geographical origin under Section 10(4)(d) of the Patents Act, 1970."
+        ]
+      }
+    },
+    {
+      "name": "with_citation_22",
+      "input": {
+        "query": "prior art",
+        "citations": [
+          {
+            "document_id": "FIXTURE",
+            "chunk_id": "FIXTURE-TK",
+            "title": "Traditional knowledge",
+            "source_name": "Synthetic fixture",
+            "source_url": null,
+            "text": "turmeric",
+            "domain": null,
+            "score": null,
+            "authority_tier": null,
+            "rag_source": "RAG1"
+          }
+        ],
+        "jurisdiction": "INDIA",
+        "route_intent": "conceptual_domain_knowledge"
+      },
+      "expected": {
+        "intent": "Prior Art & Classical Knowledge Baseline",
+        "subgraph": {
+          "nodes": [
+            {
+              "id": "bio_turmeric",
+              "label": "Turmeric (Curcuma longa / Haridra)",
+              "category": "Biological Resource",
+              "keywords": [
+                "turmeric",
+                "haldi",
+                "haridra",
+                "curcuma longa",
+                "curcumin"
+              ],
+              "description": "Rhizome extensively documented in Charaka and Sushruta Samhita for anti-inflammatory, wound healing, and metabolic actions."
+            },
+            {
+              "id": "source_tkdl",
+              "label": "Traditional Knowledge Digital Library (TKDL)",
+              "category": "Prior Art Repository",
+              "keywords": [
+                "tkdl",
+                "traditional knowledge digital library",
+                "prior art",
+                "classical text"
+              ],
+              "description": "Database containing over 450,000 digitized formulations translated into 5 international languages for patent examiner searches."
+            },
+            {
+              "id": "bio_neem",
+              "label": "Neem (Azadirachta indica / Nimba)",
+              "category": "Biological Resource",
+              "keywords": [
+                "neem",
+                "nimba",
+                "azadirachta indica"
+              ],
+              "description": "Medicinal tree famous in landmark EPO patent revocations; classic prior-art paradigm under TKDL."
+            },
+            {
+              "id": "law_bda",
+              "label": "Biological Diversity Act, 2002",
+              "category": "Statute",
+              "keywords": [
+                "biological diversity act",
+                "bda",
+                "biodiversity act",
+                "biological resource"
+              ],
+              "description": "Governs conservation, sustainable use, and fair equitable benefit sharing from Indian biological resources."
+            },
+            {
+              "id": "sec_3p",
+              "label": "Section 3(p) — Traditional Knowledge Bar",
+              "category": "Statutory Bar",
+              "keywords": [
+                "section 3(p)",
+                "sec 3(p)",
+                "3(p)",
+                "traditional knowledge bar"
+              ],
+              "description": "Inventions that in effect are traditional knowledge or an aggregation or duplication of known properties are non-patentable."
+            }
+          ],
+          "edges": [
+            {
+              "source": "bio_turmeric",
+              "target": "source_tkdl",
+              "relation": "DOCUMENTED_IN",
+              "label": "Recorded in TKDL prior art"
+            },
+            {
+              "source": "bio_turmeric",
+              "target": "law_bda",
+              "relation": "REGULATED_BY",
+              "label": "Governed as biological resource"
+            },
+            {
+              "source": "bio_neem",
+              "target": "source_tkdl",
+              "relation": "DOCUMENTED_IN",
+              "label": "Landmark TKDL prior art"
+            },
+            {
+              "source": "source_tkdl",
+              "target": "sec_3p",
+              "relation": "TRIGGERS_BAR",
+              "label": "Establishes Section 3(p) prior art"
+            }
+          ],
+          "reasoning_paths": [
+            "Ayurvedic Prior Art ➔ Section 3(p) TK Bar ➔ Require Novel Extraction / Synergistic Form"
+          ],
+          "total_nodes": 5,
+          "total_edges": 4
+        },
+        "reasoning_steps": [
+          {
+            "step": 1,
+            "title": "Intent & Jurisdiction Scope",
+            "summary": "Target jurisdiction: INDIA. Intent class: Prior Art & Classical Knowledge Baseline.",
+            "details": "Assessed jurisdictional boundary and parsed patentability vs regulatory requirements."
+          },
+          {
+            "step": 2,
+            "title": "Knowledge Graph Traversal",
+            "summary": "Identified 5 relational nodes and 4 active statutory links.",
+            "details": "Active legal paths: Ayurvedic Prior Art ➔ Section 3(p) TK Bar ➔ Require Novel Extraction / Synergistic Form"
+          },
+          {
+            "step": 3,
+            "title": "Dual-RAG Evidence Fusion",
+            "summary": "Cross-verified 1 authoritative citations across domain knowledge and legal evidence.",
+            "details": "Retrieved classical baseline formulation data alongside statutory provisions."
+          },
+          {
+            "step": 4,
+            "title": "Statutory Conflict & Compliance Evaluation",
+            "summary": "Evaluated 1 statutory criteria (Section 3(p), Section 3(e), and Section 6 NBA clearances).",
+            "details": "Verified timing prerequisites: NBA Form III clearance is required prior to patent grant."
+          },
+          {
+            "step": 5,
+            "title": "Synthesis with Grounded Evidence",
+            "summary": "Formulated structured actionable guidance backed by verified source citations.",
+            "details": "Structured executive summary, domain analysis, statutory framework, and strategic next steps."
+          }
+        ],
+        "statutory_checks": [
+          {
+            "rule": "Patents Act Section 3(p) — Traditional Knowledge Exclusion",
+            "status": "APPLICABLE_BARRIER",
+            "finding": "Raw biological substances or known traditional uses in TKDL cannot be patented. Claims must be restricted to novel extraction processes, synergistic combinations, or non-obvious therapeutic modifications.",
+            "mitigation": "Establish evidence of non-obvious technological intervention, technical step, or novel standardized dosage form."
+          }
+        ],
+        "action_plan": [
+          "Perform comprehensive prior-art search in TKDL and IPO / WIPO databases.",
+          "Verify whether biological resources are sourced within India to initiate NBA Form III filing.",
+          "Generate empirical synergism data if claiming polyherbal composition to overcome Section 3(e).",
+          "Disclose geographical origin under Section 10(4)(d) of the Patents Act, 1970."
+        ]
+      }
+    },
+    {
+      "name": "with_citation_23",
+      "input": {
+        "query": "patent formulation",
+        "citations": [
+          {
+            "document_id": "FIXTURE",
+            "chunk_id": "FIXTURE-TK",
+            "title": "Traditional knowledge",
+            "source_name": "Synthetic fixture",
+            "source_url": null,
+            "text": "turmeric",
+            "domain": null,
+            "score": null,
+            "authority_tier": null,
+            "rag_source": "RAG1"
+          }
+        ],
+        "jurisdiction": "INDIA",
+        "route_intent": "conceptual_domain_knowledge"
+      },
+      "expected": {
+        "intent": "Patentability & Regulatory Compliance",
+        "subgraph": {
+          "nodes": [
+            {
+              "id": "bio_turmeric",
+              "label": "Turmeric (Curcuma longa / Haridra)",
+              "category": "Biological Resource",
+              "keywords": [
+                "turmeric",
+                "haldi",
+                "haridra",
+                "curcuma longa",
+                "curcumin"
+              ],
+              "description": "Rhizome extensively documented in Charaka and Sushruta Samhita for anti-inflammatory, wound healing, and metabolic actions."
+            },
+            {
+              "id": "form_polyherbal",
+              "label": "Polyherbal / Classical Formulation",
+              "category": "Formulation",
+              "keywords": [
+                "formulation",
+                "polyherbal",
+                "admixture",
+                "triphala",
+                "chyawanprash",
+                "kwath",
+                "churna",
+                "taila"
+              ],
+              "description": "Ayurvedic combination formulation combining two or more herbal extracts or raw biological substances."
+            },
+            {
+              "id": "law_patents_act",
+              "label": "The Patents Act, 1970",
+              "category": "Statute",
+              "keywords": [
+                "patents act",
+                "patent",
+                "indian patent office",
+                "ipo"
+              ],
+              "description": "Primary Indian legislation governing patent grant, patentability bars, and disclosure mandates."
+            },
+            {
+              "id": "law_bda",
+              "label": "Biological Diversity Act, 2002",
+              "category": "Statute",
+              "keywords": [
+                "biological diversity act",
+                "bda",
+                "biodiversity act",
+                "biological resource"
+              ],
+              "description": "Governs conservation, sustainable use, and fair equitable benefit sharing from Indian biological resources."
+            },
+            {
+              "id": "sec_10_4",
+              "label": "Section 10(4)(d) — Source & Origin Disclosure",
+              "category": "Statutory Mandate",
+              "keywords": [
+                "section 10(4)",
+                "10(4)",
+                "source of biological material",
+                "geographical origin"
+              ],
+              "description": "Mandatory specification of biological material source and geographical origin in patent specifications."
+            },
+            {
+              "id": "sec_3e",
+              "label": "Section 3(e) — Mere Admixture Bar",
+              "category": "Statutory Bar",
+              "keywords": [
+                "section 3(e)",
+                "sec 3(e)",
+                "3(e)",
+                "admixture",
+                "synergism",
+                "synergy"
+              ],
+              "description": "Mere admixtures resulting only in aggregation of properties of components are unpatentable; synergistic efficacy must be proved."
+            },
+            {
+              "id": "sec_3p",
+              "label": "Section 3(p) — Traditional Knowledge Bar",
+              "category": "Statutory Bar",
+              "keywords": [
+                "section 3(p)",
+                "sec 3(p)",
+                "3(p)",
+                "traditional knowledge bar"
+              ],
+              "description": "Inventions that in effect are traditional knowledge or an aggregation or duplication of known properties are non-patentable."
+            },
+            {
+              "id": "source_tkdl",
+              "label": "Traditional Knowledge Digital Library (TKDL)",
+              "category": "Prior Art Repository",
+              "keywords": [
+                "tkdl",
+                "traditional knowledge digital library",
+                "prior art",
+                "classical text"
+              ],
+              "description": "Database containing over 450,000 digitized formulations translated into 5 international languages for patent examiner searches."
+            }
+          ],
+          "edges": [
+            {
+              "source": "bio_turmeric",
+              "target": "source_tkdl",
+              "relation": "DOCUMENTED_IN",
+              "label": "Recorded in TKDL prior art"
+            },
+            {
+              "source": "bio_turmeric",
+              "target": "law_bda",
+              "relation": "REGULATED_BY",
+              "label": "Governed as biological resource"
+            },
+            {
+              "source": "form_polyherbal",
+              "target": "sec_3e",
+              "relation": "MUST_OVERCOME",
+              "label": "Must prove synergistic efficacy"
+            },
+            {
+              "source": "form_polyherbal",
+              "target": "sec_3p",
+              "relation": "MUST_OVERCOME",
+              "label": "Traditional knowledge bar risk"
+            },
+            {
+              "source": "law_patents_act",
+              "target": "sec_3p",
+              "relation": "CONTAINS_PROVISION",
+              "label": "Statutory exclusion"
+            },
+            {
+              "source": "law_patents_act",
+              "target": "sec_3e",
+              "relation": "CONTAINS_PROVISION",
+              "label": "Statutory exclusion"
+            },
+            {
+              "source": "law_patents_act",
+              "target": "sec_10_4",
+              "relation": "MANDATES",
+              "label": "Biological origin disclosure"
+            }
+          ],
+          "reasoning_paths": [
+            "Ayurvedic Prior Art ➔ Section 3(p) TK Bar ➔ Require Novel Extraction / Synergistic Form",
+            "Polyherbal Composition ➔ Section 3(e) Admixture Test ➔ Empirical Synergistic Data Proof"
+          ],
+          "total_nodes": 8,
+          "total_edges": 7
+        },
+        "reasoning_steps": [
+          {
+            "step": 1,
+            "title": "Intent & Jurisdiction Scope",
+            "summary": "Target jurisdiction: INDIA. Intent class: Patentability & Regulatory Compliance.",
+            "details": "Assessed jurisdictional boundary and parsed patentability vs regulatory requirements."
+          },
+          {
+            "step": 2,
+            "title": "Knowledge Graph Traversal",
+            "summary": "Identified 8 relational nodes and 7 active statutory links.",
+            "details": "Active legal paths: Ayurvedic Prior Art ➔ Section 3(p) TK Bar ➔ Require Novel Extraction / Synergistic Form; Polyherbal Composition ➔ Section 3(e) Admixture Test ➔ Empirical Synergistic Data Proof"
+          },
+          {
+            "step": 3,
+            "title": "Dual-RAG Evidence Fusion",
+            "summary": "Cross-verified 1 authoritative citations across domain knowledge and legal evidence.",
+            "details": "Retrieved classical baseline formulation data alongside statutory provisions."
+          },
+          {
+            "step": 4,
+            "title": "Statutory Conflict & Compliance Evaluation",
+            "summary": "Evaluated 3 statutory criteria (Section 3(p), Section 3(e), and Section 6 NBA clearances).",
+            "details": "Verified timing prerequisites: NBA Form III clearance is required prior to patent grant."
+          },
+          {
+            "step": 5,
+            "title": "Synthesis with Grounded Evidence",
+            "summary": "Formulated structured actionable guidance backed by verified source citations.",
+            "details": "Structured executive summary, domain analysis, statutory framework, and strategic next steps."
+          }
+        ],
+        "statutory_checks": [
+          {
+            "rule": "Patents Act Section 3(p) — Traditional Knowledge Exclusion",
+            "status": "APPLICABLE_BARRIER",
+            "finding": "Raw biological substances or known traditional uses in TKDL cannot be patented. Claims must be restricted to novel extraction processes, synergistic combinations, or non-obvious therapeutic modifications.",
+            "mitigation": "Establish evidence of non-obvious technological intervention, technical step, or novel standardized dosage form."
+          },
+          {
+            "rule": "Patents Act Section 3(e) — Mere Admixture Bar",
+            "status": "EVIDENTIARY_BURDEN",
+            "finding": "Combining multiple herbs is considered a mere aggregation of known properties unless unexpected synergism is quantitatively proven.",
+            "mitigation": "Submit comparative in-vitro / in-vivo combination index (CI < 1) or empirical pharmacological data demonstrating synergy."
+          },
+          {
+            "rule": "Biological Diversity Act Section 6(1) — Mandatory NBA Approval",
+            "status": "MANDATORY_PREREQUISITE",
+            "finding": "Commercial patent filing based on Indian biological resources strictly requires prior approval from the National Biodiversity Authority (Form III). Section 40 NTC commodity exemption does NOT apply to IPR applications.",
+            "mitigation": "Submit NBA Form III immediately after patent application and obtain formal clearance prior to patent grant."
+          }
+        ],
+        "action_plan": [
+          "Perform comprehensive prior-art search in TKDL and IPO / WIPO databases.",
+          "Verify whether biological resources are sourced within India to initiate NBA Form III filing.",
+          "Generate empirical synergism data if claiming polyherbal composition to overcome Section 3(e).",
+          "Disclose geographical origin under Section 10(4)(d) of the Patents Act, 1970."
+        ]
+      }
+    }
+  ],
+  "abs_graph": {
+    "nodes": [
+      {
+        "id": "auth_nba",
+        "label": "National Biodiversity Authority (NBA)",
+        "category": "Regulatory Authority",
+        "keywords": [
+          "national biodiversity authority",
+          "nba",
+          "chennai"
+        ],
+        "description": "Apex statutory body responsible for approving IPR applications and Access and Benefit Sharing (ABS) agreements."
+      },
+      {
+        "id": "filing_abs_agreement",
+        "label": "Access & Benefit Sharing (ABS) Agreement",
+        "category": "Compliance Filing",
+        "keywords": [
+          "abs",
+          "benefit sharing",
+          "access and benefit sharing",
+          "turnover fee"
+        ],
+        "description": "Statutory royalty levy of 0.1% to 0.5% on gross ex-factory sales turnover paid to the NBA / BMC."
+      },
+      {
+        "id": "sec_6_bda",
+        "label": "Section 6(1) BDA — Mandatory NBA Approval",
+        "category": "Statutory Mandate",
+        "keywords": [
+          "section 6(1)",
+          "section 6",
+          "6(1)",
+          "nba approval",
+          "national biodiversity authority"
+        ],
+        "description": "Mandatory prior approval from NBA before applying for any intellectual property right inside or outside India based on Indian biological resources."
+      }
+    ],
+    "edges": [
+      {
+        "source": "sec_6_bda",
+        "target": "auth_nba",
+        "relation": "ADMINISTERED_BY",
+        "label": "NBA evaluates and approves"
+      },
+      {
+        "source": "auth_nba",
+        "target": "filing_abs_agreement",
+        "relation": "EXECUTES",
+        "label": "Levies 0.1%-0.5% gross sales ABS"
+      }
+    ],
+    "reasoning_paths": [
+      "Biological Resource ➔ Section 6(1) BDA ➔ NBA Form III Approval ➔ Indian Patent Office Grant"
+    ],
+    "total_nodes": 3,
+    "total_edges": 2
+  }
+}
