@@ -1,0 +1,100 @@
+{
+  "primary_jurisdiction": "INDIA",
+  "default_intent": "Patentability & Regulatory Compliance",
+  "intent_options": [
+    {
+      "keywords": [
+        "prior art",
+        "tkdl",
+        "literature",
+        "samhita",
+        "purva kala"
+      ],
+      "label": "Prior Art & Classical Knowledge Baseline"
+    },
+    {
+      "keywords": [
+        "nba",
+        "abs",
+        "biodiversity",
+        "benefit sharing",
+        "form iii",
+        "form 3"
+      ],
+      "label": "Biological Diversity & ABS Clearances"
+    },
+    {
+      "keywords": [
+        "fssai",
+        "aahara",
+        "food",
+        "dietary",
+        "license",
+        "rule 158b",
+        "ayush"
+      ],
+      "label": "Regulatory Licensing (AYUSH vs FSSAI)"
+    }
+  ],
+  "fallback_intent": "International evidence review",
+  "primary_steps": [
+    {
+      "step": 1,
+      "title": "Intent & Jurisdiction Scope",
+      "summary": "Target jurisdiction: {jurisdiction}. Intent class: {intent}.",
+      "details": "Assessed jurisdictional boundary and parsed patentability vs regulatory requirements."
+    },
+    {
+      "step": 2,
+      "title": "Knowledge Graph Traversal",
+      "summary": "Identified {node_count} relational nodes and {edge_count} active statutory links.",
+      "details": "Active legal paths: {paths}"
+    },
+    {
+      "step": 3,
+      "title": "Dual-RAG Evidence Fusion",
+      "summary": "Cross-verified {citation_count} authoritative citations across domain knowledge and legal evidence.",
+      "details": "Retrieved classical baseline formulation data alongside statutory provisions."
+    },
+    {
+      "step": 4,
+      "title": "Statutory Conflict & Compliance Evaluation",
+      "summary": "Evaluated {check_count} statutory criteria (Section 3(p), Section 3(e), and Section 6 NBA clearances).",
+      "details": "Verified timing prerequisites: NBA Form III clearance is required prior to patent grant."
+    },
+    {
+      "step": 5,
+      "title": "Synthesis with Grounded Evidence",
+      "summary": "Formulated structured actionable guidance backed by verified source citations.",
+      "details": "Structured executive summary, domain analysis, statutory framework, and strategic next steps."
+    }
+  ],
+  "fallback_steps": [
+    {
+      "step": 1,
+      "title": "Jurisdiction scope",
+      "summary": "Selected jurisdiction: INTERNATIONAL."
+    },
+    {
+      "step": 2,
+      "title": "Retrieved evidence",
+      "summary": "Retrieved {citation_count} citations for review."
+    }
+  ],
+  "path_fallback": "Direct statutory review",
+  "action_plan": [
+    "Perform comprehensive prior-art search in TKDL and IPO / WIPO databases.",
+    "Verify whether biological resources are sourced within India to initiate NBA Form III filing.",
+    "Generate empirical synergism data if claiming polyherbal composition to overcome Section 3(e).",
+    "Disclose geographical origin under Section 10(4)(d) of the Patents Act, 1970."
+  ],
+  "source_refs": [
+    "patents-tk",
+    "patents-admixture",
+    "patents-origin",
+    "biodiversity-ipr",
+    "biodiversity-ntc"
+  ],
+  "disclaimer": "This is decision support, not legal advice. Verify applicability and current requirements with a qualified professional.",
+  "scope_note": "Traditional-knowledge context is based on the accessible evidence corpus. TKDL is restricted-access and non-exhaustive; this is not a complete TKDL or patent prior-art search."
+}

@@ -1,0 +1,141 @@
+[
+  {
+    "source_id": "patents-tk",
+    "title": "Patents Act 1970, consolidated to 1-08-2024, from IP India (authoritative)",
+    "version": "2024",
+    "effective_from": null,
+    "effective_to": null,
+    "source_url": "https://ipindia.gov.in/frontend/pdf/patents/1_113_1_The_Patents_Act__1970___incorporating_all_amendments_till_1-08-2024.pdf",
+    "corpus_file": "rag2_legal_regulatory_evidence.jsonl",
+    "corpus_sha256": "27d2e979ea9ba66ee267c23b581fe43837ce4abcc6db1481a2e466df4fc5183d",
+    "record_ids": [
+      "RAG2-03458"
+    ],
+    "verification_status": "needs_human_verification",
+    "note": "Existing corpus source. Provision-level effective dates, interpretation and current applicability have not been verified."
+  },
+  {
+    "source_id": "patents-admixture",
+    "title": "Patents Act 1970, consolidated to 1-08-2024, from IP India (authoritative)",
+    "version": "2024",
+    "effective_from": null,
+    "effective_to": null,
+    "source_url": "https://ipindia.gov.in/frontend/pdf/patents/1_113_1_The_Patents_Act__1970___incorporating_all_amendments_till_1-08-2024.pdf",
+    "corpus_file": "rag2_legal_regulatory_evidence.jsonl",
+    "corpus_sha256": "27d2e979ea9ba66ee267c23b581fe43837ce4abcc6db1481a2e466df4fc5183d",
+    "record_ids": [
+      "RAG2-03457"
+    ],
+    "verification_status": "needs_human_verification",
+    "note": "Existing corpus source. Provision-level effective dates, interpretation and current applicability have not been verified."
+  },
+  {
+    "source_id": "patents-origin",
+    "title": "Patents Act 1970, consolidated to 1-08-2024, from IP India (authoritative)",
+    "version": "2024",
+    "effective_from": null,
+    "effective_to": null,
+    "source_url": "https://ipindia.gov.in/frontend/pdf/patents/1_113_1_The_Patents_Act__1970___incorporating_all_amendments_till_1-08-2024.pdf",
+    "corpus_file": "rag2_legal_regulatory_evidence.jsonl",
+    "corpus_sha256": "27d2e979ea9ba66ee267c23b581fe43837ce4abcc6db1481a2e466df4fc5183d",
+    "record_ids": [
+      "RAG2-03468"
+    ],
+    "verification_status": "needs_human_verification",
+    "note": "Existing corpus source. Provision-level effective dates, interpretation and current applicability have not been verified."
+  },
+  {
+    "source_id": "biodiversity-ipr",
+    "title": "Biological Diversity Act 2002, from FAOLEX (FAO's own UN legal database - avoids NBA's unreliable server)",
+    "version": "2002",
+    "effective_from": null,
+    "effective_to": null,
+    "source_url": "https://faolex.fao.org/docs/pdf/ind40698.pdf",
+    "corpus_file": "rag2_legal_regulatory_evidence.jsonl",
+    "corpus_sha256": "27d2e979ea9ba66ee267c23b581fe43837ce4abcc6db1481a2e466df4fc5183d",
+    "record_ids": [
+      "RAG2-00009",
+      "RAG2-00035"
+    ],
+    "verification_status": "needs_human_verification",
+    "note": "Existing corpus source. Provision-level effective dates, interpretation and current applicability have not been verified."
+  },
+  {
+    "source_id": "biodiversity-ntc",
+    "title": "Biological Diversity Act 2002, from FAOLEX (FAO's own UN legal database - avoids NBA's unreliable server)",
+    "version": "2002",
+    "effective_from": null,
+    "effective_to": null,
+    "source_url": "https://faolex.fao.org/docs/pdf/ind40698.pdf",
+    "corpus_file": "rag2_legal_regulatory_evidence.jsonl",
+    "corpus_sha256": "27d2e979ea9ba66ee267c23b581fe43837ce4abcc6db1481a2e466df4fc5183d",
+    "record_ids": [
+      "RAG2-00039"
+    ],
+    "verification_status": "needs_human_verification",
+    "note": "Existing corpus source. Provision-level effective dates, interpretation and current applicability have not been verified."
+  },
+  {
+    "source_id": "abs-2014",
+    "title": "Guidelines on Access to Biological Resources and Associated Knowledge and Benefits Sharing Regulations 2014, from FAOLEX (avoids NBA's unreliable server)",
+    "version": "2014",
+    "effective_from": null,
+    "effective_to": null,
+    "source_url": "https://faolex.fao.org/docs/pdf/ind188691.pdf",
+    "corpus_file": "rag2_legal_regulatory_evidence.jsonl",
+    "corpus_sha256": "27d2e979ea9ba66ee267c23b581fe43837ce4abcc6db1481a2e466df4fc5183d",
+    "record_ids": [
+      "RAG2-03385",
+      "RAG2-03414",
+      "RAG2-03415",
+      "RAG2-03416",
+      "RAG2-03418",
+      "RAG2-03419",
+      "RAG2-03420",
+      "RAG2-03422",
+      "RAG2-03424",
+      "RAG2-03425",
+      "RAG2-03426"
+    ],
+    "verification_status": "needs_human_verification",
+    "note": "Existing corpus source. Provision-level effective dates, interpretation and current applicability have not been verified."
+  },
+  {
+    "source_id": "bd-rules",
+    "title": "Biological Diversity Rules 2004, from FAOLEX (avoids NBA's unreliable server)",
+    "version": "2004",
+    "effective_from": null,
+    "effective_to": null,
+    "source_url": "https://faolex.fao.org/docs/pdf/ind53983.pdf",
+    "corpus_file": "rag2_legal_regulatory_evidence.jsonl",
+    "corpus_sha256": "27d2e979ea9ba66ee267c23b581fe43837ce4abcc6db1481a2e466df4fc5183d",
+    "record_ids": [
+      "RAG2-00080"
+    ],
+    "verification_status": "needs_human_verification",
+    "note": "Existing corpus source. Provision-level effective dates, interpretation and current applicability have not been verified."
+  },
+  {
+    "source_id": "abs-seed",
+    "title": "Monetary Benefit Sharing Percentage on Gross Sales",
+    "version": null,
+    "effective_from": null,
+    "source_url": "https://nbaindia.nic.in",
+    "corpus_file": "rag1_ayurveda_ip_knowledge.jsonl",
+    "corpus_sha256": "dc223c21c000869b7ad2ffa08a974924f691d25d1e0dfa5b17730c3ad2c73c76",
+    "record_ids": [
+      "RAG1-AYUSH-0016"
+    ],
+    "verification_status": "needs_human_verification",
+    "note": "Auxiliary domain seed; not independently sufficient legal evidence."
+  },
+  {
+    "source_id": "legacy-synergy-candidate",
+    "title": "Candidate source for legacy synergy assertion; supporting provision not established",
+    "version": null,
+    "effective_from": null,
+    "source_url": "https://ipindia.gov.in/acts-rules-patents.htm",
+    "verification_status": "unverified",
+    "note": "URL copied from the existing mock, not verified support for the numerical mitigation. TODO: needs_human_verification."
+  }
+]

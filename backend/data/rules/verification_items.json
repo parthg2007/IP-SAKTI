@@ -1,0 +1,79 @@
+[
+  {
+    "id": "abs-legacy",
+    "verification_status": "needs_human_verification",
+    "note": "Legacy ABS percentages, sales bands, distribution shares, scope and dates require human confirmation against the applicable NBA source. The accessible corpus contains older provisions; no current rate is determined.",
+    "locations": [
+      "backend/app/core/knowledge_graph.py:filing_abs_agreement",
+      "backend/app/core/knowledge_graph.py:auth_nba->filing_abs_agreement",
+      "backend/app/orchestrator/mock_rag2_connector.py:RAG2-REG-ABS-MATRIX",
+      "backend/app/core/language.py:NBA_ABS_FORMS",
+      "backend/context.md:ABS Regulations",
+      "backend/rag1_ayurveda_ip_knowledge.jsonl:RAG1-AYUSH-0016",
+      "backend/rag1_ayurveda_ip_knowledge.csv:RAG1-AYUSH-0016",
+      "backend/rag2_legal_regulatory_evidence.jsonl:listed record_ids",
+      "backend/rag2_legal_regulatory_evidence.csv:listed record_ids",
+      "backend/app/rag2/ingestion.py:nba_abs_guidelines",
+      "backend/app/rag2/normalizer.py:ABS aliases"
+    ],
+    "source_refs": [
+      "abs-2014",
+      "bd-rules",
+      "abs-seed"
+    ],
+    "record_ids": [
+      "RAG2-03385",
+      "RAG2-03414",
+      "RAG2-03415",
+      "RAG2-03416",
+      "RAG2-03418",
+      "RAG2-03419",
+      "RAG2-03420",
+      "RAG2-03422",
+      "RAG2-03424",
+      "RAG2-03425",
+      "RAG2-03426",
+      "RAG2-00080",
+      "RAG1-AYUSH-0016",
+      "RAG2-REG-ABS-MATRIX"
+    ],
+    "graph_node_ids": [
+      "filing_abs_agreement"
+    ],
+    "graph_edges": [
+      [
+        "auth_nba",
+        "filing_abs_agreement"
+      ]
+    ],
+    "query_terms": [
+      "abs",
+      "benefit sharing",
+      "nba",
+      "turnover",
+      "gross sales"
+    ]
+  },
+  {
+    "id": "legacy-synergy",
+    "verification_status": "needs_human_verification",
+    "note": "The numerical synergy mitigation is not supported by the searched corpus. TODO: needs_human_verification; candidate URL is not supporting evidence.",
+    "locations": [
+      "backend/app/core/agentic_reasoner.py:legacy admixture mitigation",
+      "backend/app/orchestrator/mock_rag2_connector.py:synergy assertion"
+    ],
+    "source_refs": [
+      "patents-admixture",
+      "legacy-synergy-candidate"
+    ],
+    "query_terms": [
+      "formulation",
+      "composition",
+      "combination",
+      "polyherbal",
+      "admixture",
+      "blend",
+      "curcumin"
+    ]
+  }
+]

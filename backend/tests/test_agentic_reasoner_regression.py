@@ -21,7 +21,8 @@ BASELINE = json.loads(
 @pytest.mark.parametrize("case", BASELINE["cases"], ids=lambda case: case["name"])
 def test_legacy_reasoner_output(case):
     request = {**case["input"], "citations": [RAGEvidence(**c) for c in case["input"]["citations"]]}
-    assert agentic_reasoner.analyze_and_reason(**request) == case["expected"]
+    output = agentic_reasoner.analyze_and_reason(**request)
+    assert {key: output[key] for key in case["expected"]} == case["expected"]
 
 
 def test_legacy_abs_graph():

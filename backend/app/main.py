@@ -21,6 +21,7 @@ from app.orchestrator.http_connector import HTTPRAGConnector
 from app.orchestrator.human_routes import router as human_router
 from app.orchestrator.voice_routes import router as voice_router
 from app.core.bhashini import SUPPORTED_LANGUAGES, bhashini
+from app.rules.loader import reload_rule_set
 
 # Configure logging
 logging.basicConfig(
@@ -34,6 +35,7 @@ logger = logging.getLogger("ip_sakti")
 async def lifespan(app: FastAPI):
     """Application lifecycle management."""
     logger.info("Starting up IP-SAKTI Knowledge Backend...")
+    reload_rule_set()
 
     # 1. Initialize RAG 1 Domain Service
     rag1_service.initialize()

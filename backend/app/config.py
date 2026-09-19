@@ -11,6 +11,7 @@ load_dotenv(BASE_DIR / ".env")
 
 class Settings:
     BASE_DIR: Path = BASE_DIR
+    RULES_DIR: Path = Path(os.getenv("RULES_DIR", str(BASE_DIR / "data" / "rules")))
 
     # Server configuration
     HOST: str = os.getenv("HOST", "0.0.0.0")

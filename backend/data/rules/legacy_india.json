@@ -1,0 +1,126 @@
+[
+  {
+    "id": "india-tk-exclusion",
+    "jurisdiction": "INDIA",
+    "topic": "traditional_knowledge",
+    "condition": {
+      "op": "any",
+      "conditions": [
+        {
+          "op": "contains_any",
+          "field": "query",
+          "values": [
+            "patent",
+            "turmeric",
+            "haldi",
+            "neem",
+            "ashwagandha",
+            "formulation",
+            "herb",
+            "extract"
+          ]
+        },
+        {
+          "op": "eq",
+          "field": "jurisdiction",
+          "value": "INDIA"
+        }
+      ]
+    },
+    "conclusion_template": {
+      "rule": "Patents Act Section 3(p) — Traditional Knowledge Exclusion",
+      "status": "APPLICABLE_BARRIER",
+      "finding": "Raw biological substances or known traditional uses in TKDL cannot be patented. Claims must be restricted to novel extraction processes, synergistic combinations, or non-obvious therapeutic modifications.",
+      "mitigation": "Establish evidence of non-obvious technological intervention, technical step, or novel standardized dosage form."
+    },
+    "source_refs": [
+      "patents-tk"
+    ],
+    "effective_from": null,
+    "effective_to": null,
+    "version": "legacy-1",
+    "verification_status": "needs_human_verification",
+    "priority": 0,
+    "review_note": "Legacy keyword trigger applies to every India query, regardless of evidence. Verify the traditional-knowledge interpretation and applicability."
+  },
+  {
+    "id": "india-admixture",
+    "jurisdiction": "INDIA",
+    "topic": "patent_pathway",
+    "condition": {
+      "op": "contains_any",
+      "field": "query",
+      "values": [
+        "formulation",
+        "composition",
+        "combination",
+        "polyherbal",
+        "admixture",
+        "blend",
+        "curcumin"
+      ]
+    },
+    "conclusion_template": {
+      "rule": "Patents Act Section 3(e) — Mere Admixture Bar",
+      "status": "EVIDENTIARY_BURDEN",
+      "finding": "Combining multiple herbs is considered a mere aggregation of known properties unless unexpected synergism is quantitatively proven.",
+      "mitigation": "Submit comparative in-vitro / in-vivo combination index (CI < 1) or empirical pharmacological data demonstrating synergy."
+    },
+    "source_refs": [
+      "patents-admixture",
+      "legacy-synergy-candidate"
+    ],
+    "effective_from": null,
+    "effective_to": null,
+    "version": "legacy-1",
+    "verification_status": "unverified",
+    "priority": 1,
+    "review_note": "The numerical synergy mitigation is not supported by the searched corpus. TODO: needs_human_verification; candidate URL is not supporting evidence."
+  },
+  {
+    "id": "india-biological-ipr",
+    "jurisdiction": "INDIA",
+    "topic": "biological_resource_ipr",
+    "condition": {
+      "op": "all",
+      "conditions": [
+        {
+          "op": "eq",
+          "field": "jurisdiction",
+          "value": "INDIA"
+        },
+        {
+          "op": "contains_any",
+          "field": "query",
+          "values": [
+            "turmeric",
+            "haldi",
+            "neem",
+            "ashwagandha",
+            "plant",
+            "biological",
+            "patent",
+            "file",
+            "commercial"
+          ]
+        }
+      ]
+    },
+    "conclusion_template": {
+      "rule": "Biological Diversity Act Section 6(1) — Mandatory NBA Approval",
+      "status": "MANDATORY_PREREQUISITE",
+      "finding": "Commercial patent filing based on Indian biological resources strictly requires prior approval from the National Biodiversity Authority (Form III). Section 40 NTC commodity exemption does NOT apply to IPR applications.",
+      "mitigation": "Submit NBA Form III immediately after patent application and obtain formal clearance prior to patent grant."
+    },
+    "source_refs": [
+      "biodiversity-ipr",
+      "biodiversity-ntc"
+    ],
+    "effective_from": null,
+    "effective_to": null,
+    "version": "legacy-1",
+    "verification_status": "needs_human_verification",
+    "priority": 2,
+    "review_note": "Verify resource/applicant scope, approval timing, filing procedure, and the commodity-exemption interpretation against current authoritative sources."
+  }
+]
